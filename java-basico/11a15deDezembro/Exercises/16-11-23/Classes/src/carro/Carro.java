@@ -1,0 +1,78 @@
+package carro;
+
+public class Carro {
+	
+	
+	private	String marca;
+	private	String modelo;
+	private	int ano;
+	private	double preco;
+			
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public int getAno() {
+		return ano;
+	}
+
+	public void setAno(int ano) {
+		this.ano = ano;
+	}
+
+	public double getPreco() {
+		return preco;
+	}
+
+	public void setPreco(double preco){
+		this.preco = preco;
+	}
+
+
+	public Carro(String m,String mod, int a,double p) {
+		this.marca = m;
+	    this.modelo = mod;
+	    this.ano = a;
+	    this.preco = p;
+	}
+	
+	//função para exibir informações sobre o carro
+	public void exibirInformacoes(){
+	System.out.println("Marca: " + marca);
+	System.out.println("Modelo: " + modelo);
+	System.out.println("Ano: " + ano);
+	System.out.println("Preço: " + preco);
+	}
+
+	// função para atualizar o preço do carro
+	public void atualizarPreco(double novoPreco){
+		setPreco(novoPreco);
+		System.out.println("Preço atualizado para R$ " + novoPreco);
+	}
+	
+	public static void main(String[] args) {
+		Carro carro = new Carro("Chevrolet","Cruze", 2015,50.000);
+		
+		System.out.println(carro.getMarca()); // Serve para imprimir um atributo individualmente.
+		
+		carro.exibirInformacoes();
+	}
+	
+}
+
+
+	
+
+    

@@ -1,0 +1,3 @@
+Passageiro: Leandro Garcia | CPF: 123456789 | Tipo do cartão: 3
+Passageiro: Bruna Pereira | CPF: 987654321 | Tipo do cartão: 1
+Passageiro: Lula Molusco | CPF: 9999999999 | Tipo do cartão: 2

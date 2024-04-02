@@ -1,0 +1,1 @@
+Jornada: Trajetos: [Trechos: [Trecho: Disney - Cracolandia| Intervalo estimado: 100 minutos]] - Motorista: ZEZINHO - Cobrador: null - Veiculo: Tetse | Trajeto: Trechos: [Trecho: Disney - Cracolandia| Intervalo estimado: 100 minutos] | Checkpoint: Sun Oct 15 06:10:05 BRT 2023;

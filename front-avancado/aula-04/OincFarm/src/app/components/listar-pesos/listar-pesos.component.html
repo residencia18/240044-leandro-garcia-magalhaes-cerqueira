@@ -1,0 +1,39 @@
+<div class="contentr">
+    <div class="header">
+      <h2>Listagem de Pesos</h2>
+      <div class="button-container">
+        <button mat-fab color="primary" aria-label="Adicionar pesagem" matTooltip="Adicionar pesagem" (click)="abrirDialog()">
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+    </div>
+    <table mat-table [dataSource]="pesos" class="mat-elevation-z8">
+      <ng-container matColumnDef="brincoSuino">
+        <th mat-header-cell *matHeaderCellDef>Brinco</th>
+        <td mat-cell *matCellDef="let peso">{{ peso.brincoSuino }}</td>
+      </ng-container>
+      <ng-container matColumnDef="dataPesagem">
+        <th mat-header-cell *matHeaderCellDef>Data da Pesagem</th>
+        <td mat-cell *matCellDef="let peso">{{ peso.dataPesagem | date:'dd/MM/yyyy' }}</td>
+      </ng-container>
+      <ng-container matColumnDef="pesoKg">
+        <th mat-header-cell *matHeaderCellDef>Peso (Kg)</th>
+        <td mat-cell *matCellDef="let peso">{{ peso.pesoKg }}</td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let peso">
+          <button mat-icon-button matTooltip="Editar" (click)="abrirDialogEditar(peso.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <ng-container *ngIf="!pesos || pesos.length === 0">
+      <div class="no-data-found">Nenhum peso encontrado.</div>
+    </ng-container>
+  </div>
+  

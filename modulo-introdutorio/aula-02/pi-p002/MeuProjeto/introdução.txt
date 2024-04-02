@@ -1,0 +1,92 @@
+<<<<<<< HEAD
+
+<<<<<<< HEAD
+=======
+Através dessa da eu serei capaz de aprender a manipular o GIT & GitHub.
+
+ ### NOVA FEATURE! ###
+
+ AGORA O PROGRAMA TAMBÉM POSSUI UMA BARRA DE NAVEGAÇÃO!
+
+
+ Adicionando informações ao arquivo introdução.txt como pedido na atividade 2. TIC18.
+
+ >-<
+
+777777
+
+Fork e pull request 
+
+
+##Denil Oliveira 
+
+ 
+<<<<<< novaBranchLA
+ ### NOVA FEATURE! ###
+Foi criada uma barra de pesquisa.
+
+
+
+
+
+
+
+ ░░░░░░███████ ]▄▄▄▄▄▄▄▄▃XXXXXXXXXX
+▂▄▅█████████▅▄▃▂
+I███████████████████].
+◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤
+
+
+
+──▄────▄▄▄▄▄▄▄────▄───
+─▀▀▄─▄█████████▄─▄▀▀──
+─────██─▀███▀─██──────
+───▄─▀████▀████▀─▄────
+─▀█────██▀█▀██────█▀──
+>>>>>>> a23036b3fa3ef9332ab77eff5fe4fa7f80017afc
+
+=======
+Através dessa da eu serei capaz de aprender a manipular o GIT & GitHub.
+
+ ### NOVA FEATURE! ###
+
+ AGORA O PROGRAMA TAMBÉM POSSUI UMA BARRA DE NAVEGAÇÃO!
+
+
+ Adicionando informações ao arquivo introdução.txt como pedido na atividade 2. TIC18.
+
+ >-<
+=======
+ >-<
+
+Fork e pull request 
+
+
+##Denil Oliveira 
+=======
+ 
+<<<<<< novaBranchLA
+ ### NOVA FEATURE! ###
+Foi criada uma barra de pesquisa.
+
+
+
+
+
+
+
+ ░░░░░░███████ ]▄▄▄▄▄▄▄▄▃
+▂▄▅█████████▅▄▃▂
+I███████████████████].
+◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤
+
+<<<<<<< HEAD
+>>>>>>> parent of ff750eb (Merge pull request #5 from lufecrx/main)
+=======
+>>>>>>> parent of ff750eb (Merge pull request #5 from lufecrx/main)
+
+V 2.0!!!!!!!!!!!!
+
+#T4 sauda T2! 
+#branch criada com sucesso!
+#Obrigada por ajudar 

@@ -1,0 +1,50 @@
+.formulario {
+    border: solid 4px #652c2c;
+    box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.4); /* Sombra */
+    background-color:#ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto; /* Define margens automáticas para alinhar o elemento ao centro horizontalmente */
+    text-align:start;
+    margin-top: 200px;
+    margin-bottom: 30px;
+    text-align:center;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .span{
+    font-size: smaller;
+    color: rgb(255, 88, 88);
+    margin-top: -20px;
+  }
+
+.grafico{
+    margin-bottom: 20px;
+}
+.titulo{
+    display: flex;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#8C4A4A;
+}
+
+
+.botao{
+  background-color: rgb(255, 255, 255);
+  color: solid #8C4A4A;
+  border-radius: 10px;
+  width: 128px;
+  height: 40px;
+}
+
+
+
+mat-label{
+  color: #8C4A4A;
+}
+

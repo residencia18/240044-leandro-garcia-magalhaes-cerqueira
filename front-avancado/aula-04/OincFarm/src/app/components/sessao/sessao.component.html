@@ -1,0 +1,22 @@
+<table>
+  <!-- Cabeçalho da tabela -->
+  <thead>
+    <tr>
+      <th>Brinco</th>
+      <th *ngFor="let atividade of atividades">{{ atividade }}</th>
+    </tr>
+  </thead>
+  <!-- Corpo da tabela -->
+  <tbody>
+    <tr *ngFor="let brinco of brincos">
+      <td>{{ brinco }}</td>
+      <td *ngFor="let atividade of atividades">
+        <select [(ngModel)]="relacionamentoBrincoAtividade[getIndex(brinco, atividade)].status">
+          <option value="X">X</option>
+          <option value="Não aplicada">Não aplicada</option>
+        </select>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

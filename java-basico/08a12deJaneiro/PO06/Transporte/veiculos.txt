@@ -1,0 +1,3 @@
+Modelo: Mercedez B700 | Placa: ABC1234;
+Modelo: Scania S900 | Placa: FGV8877;
+Modelo: Volvo V500 | Placa: LKK7868;

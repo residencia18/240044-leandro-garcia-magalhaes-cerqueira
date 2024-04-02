@@ -1,0 +1,4 @@
+Ponto de parada: Cruz das Almas;
+Ponto de parada: Gov. Mangabeira;
+Ponto de parada: Muritiba;
+Ponto de parada: Cachoeira;

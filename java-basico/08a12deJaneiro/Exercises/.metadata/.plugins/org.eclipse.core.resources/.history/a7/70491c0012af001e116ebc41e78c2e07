@@ -1,0 +1,17 @@
+package dadosestatisticos;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		// Criando objetos das classes
+		DatasDeNascimento datasDeNascimento = new DatasDeNascimento();
+		
+		
+		//Adicionando dados na lista para fins de teste
+		
+		
+
+	}
+
+}

@@ -1,0 +1,8 @@
+#vscode
+.vscode
+
+#folder
+output/
+
+ponto.cpp
+README.md

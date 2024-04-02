@@ -1,0 +1,47 @@
+package manipulacaodetexto;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) throws IOException {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Insira o nome do arquivo: ");
+		String nome = scanner.nextLine();
+		
+		File arquivo = new File(nome + ".txt");
+		
+		boolean existe = arquivo.exists();
+		
+		if (existe) {
+			System.out.println("O arquivo já existe!");
+			return;
+		} else {
+			arquivo.createNewFile();
+		}
+		
+		FileWriter fw = new FileWriter(arquivo);
+		BufferedWriter bw = new BufferedWriter(fw);
+		
+		String texto;
+		
+		do {
+			System.out.println("Insira um texto: ");
+			texto = scanner.nextLine();
+			
+			bw.write(texto);
+			bw.newLine();			
+			
+		} while (texto != " ");
+		
+	
+
+	}
+
+}

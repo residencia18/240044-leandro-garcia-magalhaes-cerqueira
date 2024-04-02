@@ -1,0 +1,10 @@
+<form [formGroup]="countryForm">
+    <div *ngFor="let field of camposDoForm">
+      <label>{{ field.rotulo }}</label>
+      <input *ngIf="field.tipo === 'text'" type="text" [formControlName]="field.nome">
+      <input *ngIf="field.tipo === 'number'" type="number" [formControlName]="field.nome">
+      <input *ngIf="field.tipo === 'checkbox'" type="checkbox" [formControlName]="field.nome">
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  

@@ -1,0 +1,35 @@
+mat-toolbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(36, 0, 0);
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  mat-icon.home-icon {
+    font-size: 24px;
+    margin-left: 2rem;
+  }
+  
+  .projetos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 60%;
+  }
+  
+ 
+  
+  
+  mat-button:hover, mat-icon:hover {
+    cursor: pointer;
+    
+
+  }
+  
+  mat-button.selecionado {
+    color: #edfc1e;
+    font-weight: bold;
+  }

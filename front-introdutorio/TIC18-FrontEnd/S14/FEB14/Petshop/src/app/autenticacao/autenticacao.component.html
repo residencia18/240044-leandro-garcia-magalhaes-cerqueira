@@ -1,0 +1,38 @@
+<div class="formulario">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-header">
+          Autenticação
+        </div>
+        <div class="card-body">
+          <div class="alert alert-danger" *ngIf="temErro">
+            {{erro}}
+          </div>
+          <div *ngIf="estaCarregando">
+            <app-loading-spinner></app-loading-spinner>
+          </div>
+          <form #autenticaForm="ngForm" (ngSubmit)="onSubmit(autenticaForm)" *ngIf="!estaCarregando">
+            <div class="mb-3">
+              <label for="inputEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" name="inputEmail" ngModel>
+            </div>
+            <div class="mb-3">
+              <label for="inputPassword" class="form-label">Senha</label>
+              <input type="password" class="form-control" id="inputPassword" name="inputPassword" ngModel>
+            </div>
+            <div>
+              <button class="btn btn-primary" type="submit" [disabled]="!autenticaForm.valid">{{modoLogin ? 'Login' : 'Inscrever-se'}}</button>
+              <br>
+              <br>
+              <button class="btn btn-primary" (click)="onTrocarModo()" type="button">{{ modoLogin ? 'Inscrever-se': 'Login' }}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

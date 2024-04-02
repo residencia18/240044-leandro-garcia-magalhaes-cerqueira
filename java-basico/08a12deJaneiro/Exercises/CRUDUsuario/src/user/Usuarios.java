@@ -1,0 +1,61 @@
+package user;
+
+import java.util.ArrayList;
+
+public class Usuarios {
+	
+	private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+	
+	public void inserir(Usuario u) {
+		usuarios.add(u);
+	}
+	
+	public void buscar(Usuario u) {
+		
+		for (Usuario user : usuarios) {
+			if(usuarios.contains(u)) {
+				System.out.println("Usuário encontrado!");
+				System.out.println("Nome: " + user.getNome());
+				System.out.println("e-Mail: " + user.getEmail());
+				return;
+			}
+			
+		}
+		System.out.println("Usuario não encontrado.");
+	}
+	
+	public void listar() {
+	
+		int i = 1;
+		for (Usuario user : usuarios) {
+			System.out.println("USUARIO (" + i + ") ----------------");
+			System.out.println("Nome: " + user.getNome());
+			System.out.println("e-Mail: " + user.getEmail());
+			i++;
+		}
+	}
+	
+	public void excluir(Usuario u) {
+		for (Usuario user : usuarios) {
+		if(usuarios.contains(u)){
+			usuarios.remove(user);
+			System.out.println("Usuario removido com sucesso.");
+			return;
+			
+		}
+		System.out.println("Usuario não encontrado.");
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

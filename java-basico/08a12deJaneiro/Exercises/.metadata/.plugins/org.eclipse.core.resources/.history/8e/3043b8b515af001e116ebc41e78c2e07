@@ -1,0 +1,30 @@
+package manipulacaodetexto;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class App {
+
+	public static void main(String[] args) throws IOException {
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Insira o nome do arquivo: ");
+		String nome = scanner.nextLine();
+		
+		File arquivo = new File(nome + ".txt");
+		
+		boolean existe = arquivo.exists();
+		
+		if (existe) {
+			System.out.println("O arquivo já existe!");
+			return;
+		} else {
+			arquivo.createNewFile();
+		}
+		
+
+	}
+
+}

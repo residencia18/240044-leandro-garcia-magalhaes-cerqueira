@@ -1,0 +1,14 @@
+package user;
+
+public class App {
+
+	public static void main(String[] args) {
+		
+		Usuarios usuarios = new Usuarios();
+		
+		//OBJETOS DE TESTE
+		Usuario usuario = new Usuario();
+
+	}
+
+}

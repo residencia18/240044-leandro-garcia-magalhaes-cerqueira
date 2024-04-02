@@ -1,0 +1,56 @@
+package calculadora;
+
+public class Calculadora {
+	
+	//SOMA
+	public void somaInt(int a, int b){
+		
+		System.out.println(a + b);
+		
+	}
+
+	public void somaFloat(float a, float b) {
+		
+		System.out.println(a + b);
+	}
+	
+	//SUBTRAÇÃO
+	public void subtraiInt(int a, int b){
+		
+		System.out.println(a - b);
+		
+	}
+	
+	public void subtraiFloat(float a, float b) {
+		
+		System.out.println(a - b);
+	}
+	
+	//PRODUTO
+	public void produtoInt(int a, int b){
+		
+		System.out.println(a * b);
+		
+	}
+
+	public void produtoFloat(float a, float b) {
+		
+		System.out.println(a * b);
+	}
+	
+	//DIVISÃO
+	public void divisaoInt(int a, int b){
+		
+		System.out.println(a / b);
+		
+	}
+
+	public void divisaoFloat(float a, float b) {
+		
+		System.out.println(a / b);
+	}
+	
+	
+	
+
+}

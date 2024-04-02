@@ -1,0 +1,3 @@
+Trajeto: [Trecho: Cruz das Almas - Gov. Mangabeira| Intervalo estimado: 15 minutos, Trecho: Gov. Mangabeira - Muritiba| Intervalo estimado: 10 minutos, Trecho: Muritiba - Cachoeira| Intervalo estimado: 18 minutos];
+Trajeto: [Trecho: Cruz das Almas - Gov. Mangabeira| Intervalo estimado: 15 minutos, Trecho: Gov. Mangabeira - Muritiba| Intervalo estimado: 10 minutos, Trecho: Muritiba - Cachoeira| Intervalo estimado: 18 minutos, Trecho: Cruz das Almas - Muritiba| Intervalo estimado: 25 minutos];
+Trajeto: [Trecho: Disney - Cracolandia| Intervalo estimado: 100 minutos, Trecho: Disney - Bahia| Intervalo estimado: 200 minutos];

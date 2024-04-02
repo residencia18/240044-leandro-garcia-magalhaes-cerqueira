@@ -1,0 +1,44 @@
+package dadosestatisticos;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+public class DatasDeNascimento implements DadosEstatisticos {
+	
+	private Date dataDeNascimento;
+	private ArrayList<Date> listaDatas = new ArrayList();
+	
+	
+
+	public Date getDataDeNascimento() {
+		return dataDeNascimento;
+	}
+
+	public ArrayList<Date> getListaDatas() {
+		return listaDatas;
+	}
+
+
+	public DatasDeNascimento max() {
+		
+		Date maior = new Date(); 
+		
+		for (Date data : listaDatas){
+			if (data.after(maior)) {
+				maior = data;
+			}
+			
+			return maior;
+			
+		}
+		
+	}
+	
+	
+
+	public Object min();
+	public Object ordernar();
+	public Object buscar();
+
+
+}

@@ -1,0 +1,5 @@
+Olá!
+Aparentemente,
+o programa está
+funcionando corretamente!
+:D

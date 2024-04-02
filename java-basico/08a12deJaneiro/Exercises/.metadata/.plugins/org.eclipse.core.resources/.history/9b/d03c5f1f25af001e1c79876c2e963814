@@ -1,0 +1,25 @@
+package user;
+
+import java.util.ArrayList;
+
+public class Usuarios {
+	
+	private ArrayList<Usuario> usuarios;
+	
+	public void Inserir(Usuario u) {
+		usuarios.add(u);
+	}
+	
+	public void Buscar(Usuario u) {
+		
+		for (Usuario user : usuarios) {
+		if(usuarios.contains(u)) {
+			System.out.println("Usuário encontrado!");
+			System.out.println("Nome: " + user.getNome());
+			System.out.println("e-Mail: " + user.getEmail());
+		}
+	}
+		
+	}
+
+}

@@ -1,0 +1,13 @@
+package user;
+
+import java.util.ArrayList;
+
+public class Usuarios {
+	
+	private ArrayList<Usuario> usuarios;
+	
+	public void Inserir(Usuario u) {
+		usuarios.add(u);
+	}
+
+}
