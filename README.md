@@ -8,8 +8,8 @@
 
 ## Módulo I - Introdutório:
 
-Linguagem : C++
-Assuntos:
+### Linguagem : C++
+### Assuntos:
   - Apresentação do curso
   - Versionamento de código
   - Tipos de dados e variáveis
@@ -33,8 +33,8 @@ Assuntos:
 
 ## Módulo II - Introdução a Java, .Net, Python e Front-End (Angular + NodeJs):
 
-Linguagem: Java
-Assuntos:
+### Linguagem: Java
+### Assuntos:
   - Visão geral da linguagem
   - Configuração de ambiente
   - Conceitos de OO e Java C
@@ -45,8 +45,8 @@ Assuntos:
   - Exceções
   - Classes e Objetos
 
-Linguagem: .Net
-Assuntos: 
+### Linguagem: .Net
+### Assuntos: 
   - Introdução a linguagem
   - Sintáxe básica
   - Estruturas de Fluxo
@@ -58,8 +58,8 @@ Assuntos:
   - Interfaces POO
   - Dynamic e Object POO
 
-Linguagem: Python
-Assuntos:
+### Linguagem: Python
+### Assuntos:
   - Introdução a linguagem
   - Tipos de dados básicos e seus operadores
   - Tipos de dados avançados
@@ -71,8 +71,8 @@ Assuntos:
   - Tratamento de exceções
   - Conceitos de POO (Classes, Objetos, atributos, métodos, encapsulamento, composição, herança)
 
-Linguagem: Front-end com Angular e Node.js
-Assuntos:
+### Linguagem: Front-end com Angular e Node.js
+### Assuntos:
   - Introdução ao HTML
   - Introdução ao CSS
   - Flexbox
@@ -95,8 +95,9 @@ Assuntos:
     - Integração de todas as tecnologias utilizadas
 
 ## Módulo III - Java básico:
-Linguagem: Java
-Assuntos:
+
+### Linguagem: Java
+### Assuntos:
   - Exceções
   - Classes e Objetos
   - Encapsulamento
@@ -128,16 +129,19 @@ Assuntos:
   - Introdução ao Spring Security
   - 
 ## Módulo IV - Java avançados, Front-End Avançado, Teste
-Linguagem: Java
-Assuntos:
+
+### Linguagem: Java
+### Assuntos:
   - Revisão dos assuntos de Java Básicos introduzindo boas práticas de programação
 
-
-Linguagem: Front-End (Angular + Node.Js)
-Assuntos:
+### Linguagem: Front-End (Angular + Node.Js)
+### Assuntos:
   - Formulários avançados
 
 
-Linguagem: Teste com Java
+### Linguagem: Teste com Java
+### Assuntos:
+  - História e importância dos testes
+  - Tipos de testes e suas implementações
 
 
