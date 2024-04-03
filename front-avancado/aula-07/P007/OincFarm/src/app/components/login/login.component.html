@@ -1,0 +1,40 @@
+<div class="content">
+  <form class="formulario" [formGroup]="formLogin">
+    <h2 class="titulo">Login</h2>
+      <br>
+      <mat-form-field appearance="outline" class="form">
+          <mat-label>Email</mat-label>
+        <input matInput class="email" formControlName="email">
+      </mat-form-field>
+      <div>
+        <span class="span" *ngIf="!formLogin.get('email')?.valid && formLogin.get('email')?.touched">
+        * Campo obrigatório <br>
+        * Insira um email válido<br>      
+        </span>
+      </div>
+      <br>
+
+      <mat-form-field appearance="outline" class="form">
+        <input matInput placeholder="Senha" [type]="hide ? 'password' : 'text'" formControlName="senha">
+        <mat-label>Senha</mat-label>
+        <button mat-icon-button matSuffix class="senha" (click)="hide = !hide" [attr.aria-label]="hide ? 'Mostrar Senha' : 'Esconder Senha'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
+        </mat-form-field>
+        <div>
+          <span class="span" *ngIf="!formLogin.get('senha')?.valid && formLogin.get('senha')?.touched">
+          * Campo obrigatório <br>
+          * A senha deve conter pelo menos 6 dígitos<br>      
+          </span>
+        </div>
+        <br>
+
+      <div>
+      <button mat-raised-button color="primary" class="botao"  [disabled]="!formLogin.valid" (click)="isLogin ? login() : register()"
+      [class.align-right]="!isLogin" [disabled]="!formLogin.valid">{{
+      isLogin ? 'Entrar' : 'Registrar e Entrar' }}</button>
+      <button mat-raised-button color="primary" class="botao" id="cadastrar" (click)="redirectToRegister()" *ngIf="isLogin">Cadastrar-se</button>
+      </div>
+</form>
+</div>

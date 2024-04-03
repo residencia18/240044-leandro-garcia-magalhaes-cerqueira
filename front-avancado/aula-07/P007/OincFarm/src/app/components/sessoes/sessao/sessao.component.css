@@ -1,0 +1,26 @@
+table {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+  }
+
+  th, td {
+    color: #8C4A4A;
+    border-right: 1px solid #dddddd; /* Adiciona uma borda à direita */
+    border-bottom: 1px solid #dddddd; /* Adiciona uma borda inferior */
+    padding: 8px;
+    text-align: left;
+  }
+
+  th:last-child, td:last-child {
+    border-right: none; /* Remove a borda da última célula de cada linha */
+  }
+
+  th:last-child, td:last-child {
+    border-right: none; /* Remove a borda da última célula de cada linha */
+  }
+
+  tr:last-child th, tr:last-child td {
+    border-bottom: none; /* Remove a borda inferior da última linha */
+  }

@@ -1,0 +1,19 @@
+<div class="content">
+  <form class="formulario" (ngSubmit)="renderizarGrafico()">
+      <h2 class="titulo">Controle de Dados</h2>
+      <br>
+      <mat-form-field appearance="outline" class="form">
+      <mat-label>Selecione o brinco do Suíno</mat-label>
+       <mat-select [(ngModel)]="brincoSelecionado" name="brincoSuino">
+      <mat-option *ngFor="let suino of suinos" [value]="suino.brinco">{{ suino.brinco }}</mat-option>
+       </mat-select>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" class="botao">Monitorar</button>
+  </form>
+
+
+<div class="grafico">
+        <canvas id="grafico-peso" width="800" height="400"></canvas>
+</div>
+      

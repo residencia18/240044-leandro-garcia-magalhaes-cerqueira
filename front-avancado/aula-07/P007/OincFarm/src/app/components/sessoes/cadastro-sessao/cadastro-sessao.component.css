@@ -1,0 +1,47 @@
+.formulario {
+    border: solid 4px #652c2c;
+    box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.4); /* Sombra */
+    background-color:#ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    min-width: 150px;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto; /* Define margens automáticas para alinhar o elemento ao centro horizontalmente */
+    text-align:start;
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+
+.titulo{
+    font-family:Arial, Helvetica, sans-serif;
+    color:#8C4A4A;
+}
+
+.label{
+  width: 100%;
+}
+
+.label-suino, .label-atividade{
+width: 80%;
+}
+
+.botao-adicionar{
+  border: none;
+  border-radius: 5px;
+  background-color: #8C4A4A;
+  color: #ffffff;
+  font-size: larger;
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+.botao-adicionar:hover{
+  background-color: #652c2c;
+}
+
+.span{
+  margin-left: 5px;
+  margin-top: -15px;
+}
