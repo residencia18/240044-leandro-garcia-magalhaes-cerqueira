@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { CoreModule } from '../../core/core.module';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { SharedModule } from '../../shared/shared.module';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms'; // Importe FormGroup e FormBuilder
+import { FormGroup, FormBuilder, Validators } from '@angular/forms'; 
+import { AuthService } from '../../core/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, SharedModule, CoreModule],
+  imports: [CommonModule, CoreModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

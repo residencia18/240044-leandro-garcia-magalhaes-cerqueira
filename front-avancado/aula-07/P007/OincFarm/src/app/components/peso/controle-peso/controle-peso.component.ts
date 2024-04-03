@@ -2,20 +2,16 @@ import { Component,OnInit } from '@angular/core';
 import { PesoSuino } from '../pesoSuino';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButton } from '@angular/material/button';
-import { MatFormField } from '@angular/material/form-field';
 import { Suino } from '../../suino/suino';
 import { BancoService } from '../../../core/banco.service';
-import { MatOption } from '@angular/material/core';
+import { MaterialModule } from '../../../shared/material/material.module';
 import { Observable} from 'rxjs';
 import Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-controle-peso',
   standalone : true,
-  imports : [MatFormField, MatInputModule, MatSelectModule, MatButton, MatOption, CommonModule,FormsModule],
+  imports : [MaterialModule, CommonModule,FormsModule],
   templateUrl: './controle-peso.component.html',
   styleUrls: ['./controle-peso.component.css']
 })

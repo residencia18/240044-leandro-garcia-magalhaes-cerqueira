@@ -1,15 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-//@angular/material
-import { MatFormField} from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatOption } from '@angular/material/core';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButton } from '@angular/material/button';
+import { MaterialModule } from '../../../shared/material/material.module';
 import {FormsModule} from '@angular/forms';
 import { BancoService } from '../../../core/banco.service';
 import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { Sessao } from '../sessao';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
@@ -18,7 +12,7 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-sessao',
   standalone: true,
-  imports : [MatTableModule, MatIconModule, MatFormField, MatInputModule, MatSelectModule, MatButton, MatOption, CommonModule, FormsModule, RouterModule],
+  imports : [MatTableModule, MaterialModule, CommonModule, FormsModule, RouterModule],
   templateUrl: 'sessao.component.html',
   styleUrl: './sessao.component.css'
 })

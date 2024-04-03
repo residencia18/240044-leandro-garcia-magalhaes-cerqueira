@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSnackBar } from '@angular/material/snack-bar'
+import { MaterialModule } from '../../../shared/material/material.module';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { onlyNumbersValidator } from '../onlyNumbersValidator';
 import { dateFormatValidator } from '../dateFormatValidator';
@@ -17,7 +14,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-pig-form',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, MatButtonModule, FormsModule, ReactiveFormsModule, CommonModule, MatSelectModule, HttpClientModule ],
+  imports: [MaterialModule, FormsModule, ReactiveFormsModule, CommonModule, HttpClientModule ],
   templateUrl: './pig-form.component.html',
   styleUrl: './pig-form.component.css'
 })

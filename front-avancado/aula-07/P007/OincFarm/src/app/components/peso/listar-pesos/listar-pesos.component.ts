@@ -1,24 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-
-//@angular/material
-import { MatFormField} from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatOption } from '@angular/material/core';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButton } from '@angular/material/button';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MaterialModule } from '../../../shared/material/material.module';
 import {FormsModule} from '@angular/forms';
 import { BancoService } from '../../../core/banco.service';
 import { PesoSuino } from '../pesoSuino';
 import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { CadastroPesoComponent } from '../cadastro-peso/cadastro-peso.component';
-import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-listar-pesos',
   standalone: true,
-  imports : [MatTableModule, MatIconModule, MatFormField, MatInputModule, MatSelectModule, MatButton, MatOption, CommonModule, FormsModule],
+  imports : [MatTableModule, CommonModule, FormsModule, MaterialModule],
   templateUrl: './listar-pesos.component.html',
   styleUrl: './listar-pesos.component.css'
 })

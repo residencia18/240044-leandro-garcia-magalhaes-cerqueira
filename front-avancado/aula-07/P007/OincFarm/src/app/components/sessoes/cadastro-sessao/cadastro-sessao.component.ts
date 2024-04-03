@@ -1,25 +1,17 @@
 import { Component } from '@angular/core';
 
-//@angular/material
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButton } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MaterialModule } from '../../../shared/material/material.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Suino } from '../../suino/suino';
 import { BancoService } from '../../../core/banco.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { SessaoService } from '../sessao.service';
 import { Sessao } from '../sessao';
 
 @Component({
   selector: 'app-cadastro-sessao',
   standalone: true,
-  imports: [MatFormFieldModule,MatInputModule,MatDatepickerModule,MatSelectModule, ReactiveFormsModule, CommonModule, MatNativeDateModule, MatButton, MatDialogModule],
+  imports: [MaterialModule, ReactiveFormsModule, CommonModule],
   templateUrl: './cadastro-sessao.component.html',
   styleUrl: './cadastro-sessao.component.css'
 })

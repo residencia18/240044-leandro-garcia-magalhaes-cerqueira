@@ -1,13 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-//@angular/material
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButton } from '@angular/material/button';
+import { MaterialModule } from '../../../shared/material/material.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Suino } from '../../suino/suino';
@@ -15,13 +8,16 @@ import { BancoService } from '../../../core/banco.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PesoSuino } from '../pesoSuino';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-cadastro-peso',
   standalone: true,
-  imports: [MatFormFieldModule,MatInputModule,MatDatepickerModule,MatSelectModule, ReactiveFormsModule, CommonModule, MatNativeDateModule, MatButton,],
+  imports: [ReactiveFormsModule, CommonModule, MaterialModule],
   templateUrl: './cadastro-peso.component.html',
   styleUrl: './cadastro-peso.component.css'
 })
+
+
 export class CadastroPesoComponent implements OnInit {
   pesoForm!: FormGroup;
   suinos!: Suino[];

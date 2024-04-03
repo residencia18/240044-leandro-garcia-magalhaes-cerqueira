@@ -6,13 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 
-//@angular/material
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatSelectModule } from '@angular/material/select';
+import { MaterialModule } from '../../../shared/material/material.module';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatButton } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { onlyNumbersValidator } from '../onlyNumbersValidator';
 import { dateFormatValidator } from '../dateFormatValidator';
@@ -20,7 +15,7 @@ import { dateFormatValidator } from '../dateFormatValidator';
 @Component({
   selector: 'app-editar',
   standalone: true,
-  imports: [MatFormFieldModule, MatDatepickerModule, MatSelectModule, ReactiveFormsModule, CommonModule,HttpClientModule, MatInputModule, MatButton  ],
+  imports: [MaterialModule, ReactiveFormsModule, CommonModule,HttpClientModule],
   templateUrl: './editar.component.html',
   styleUrl: './editar.component.css'
 })

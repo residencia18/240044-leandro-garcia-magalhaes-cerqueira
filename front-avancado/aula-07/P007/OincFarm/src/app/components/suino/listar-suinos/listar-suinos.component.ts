@@ -6,21 +6,17 @@ import { FormsModule } from '@angular/forms';
 import { CalcularIdadePipe } from "../calcular-idade.pipe";
 import { DatePipe } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
-import { MatIcon } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { BancoService } from '../../../core/banco.service';
 import { RouterModule } from '@angular/router';
-import { MatFormField } from '@angular/material/form-field';
-import { MatLabel } from '@angular/material/form-field';
-import { MatFormFieldModule} from '@angular/material/form-field';
-import { MatButton } from '@angular/material/button';
+import { MaterialModule } from '../../../shared/material/material.module';
 
 @Component({
     selector: 'app-listar-suinos',
     standalone: true,
     templateUrl: './listar-suinos.component.html',
     styleUrl: './listar-suinos.component.css',
-    imports: [CommonModule, FormsModule, CalcularIdadePipe, MatTableModule, MatIcon, RouterModule, MatFormField, MatLabel, MatFormFieldModule, MatButton]
+    imports: [CommonModule, FormsModule, CalcularIdadePipe, MatTableModule, RouterModule, MaterialModule]
 })
 export class ListarSuinosComponent implements OnInit {
 

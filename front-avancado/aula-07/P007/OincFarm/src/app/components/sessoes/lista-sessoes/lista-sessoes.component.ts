@@ -1,18 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-//@angular/material
-import { MatFormField} from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatOption } from '@angular/material/core';
-import { MatSelectModule } from '@angular/material/select';
+import { MaterialModule } from '../../../shared/material/material.module';
 import {FormsModule} from '@angular/forms';
 import { BancoService } from '../../../core/banco.service';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
 import { Sessao } from '../sessao';
 import { RouterModule } from '@angular/router';
-import { MatIcon } from '@angular/material/icon';
-import { MatButton } from '@angular/material/button';
+
 
 // Interface para definir a estrutura dos dados da tabela
 interface DadosDaTabela {
@@ -22,7 +17,7 @@ interface DadosDaTabela {
 @Component({
   selector: 'app-listar-sessoes',
   standalone: true,
-  imports : [MatTableModule, MatFormField, MatInputModule, MatSelectModule, MatOption, CommonModule, FormsModule, RouterModule, MatIcon, MatButton],
+  imports : [MatTableModule,CommonModule, FormsModule, RouterModule, MaterialModule],
   templateUrl: './lista-sessoes.component.html',
   styleUrl: './lista-sessoes.component.css'
 })
