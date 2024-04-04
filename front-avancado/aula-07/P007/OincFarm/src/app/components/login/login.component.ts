@@ -6,11 +6,13 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'; 
 import { AuthService } from '../../core/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MaterialModule } from '../../shared/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, CoreModule],
+  imports: [CommonModule, CoreModule, MaterialModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

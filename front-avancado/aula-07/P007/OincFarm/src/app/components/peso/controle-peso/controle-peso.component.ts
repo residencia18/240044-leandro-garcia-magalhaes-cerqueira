@@ -6,6 +6,8 @@ import { Suino } from '../../suino/suino';
 import { BancoService } from '../../../core/banco.service';
 import { MaterialModule } from '../../../shared/material/material.module';
 import { Observable} from 'rxjs';
+import { DatePipe } from '@angular/common';
+
 import Chart from 'chart.js/auto';
 
 @Component({
@@ -20,14 +22,19 @@ export class ControlePesoComponent implements OnInit {
   suinos! : Suino[];
   brincoSelecionado!: string;
   pesos: PesoSuino[] = [];
+  monitorou = false;
 
   objetosComID$!: Observable<any[]>;
   
-  constructor(private servico : BancoService) { }
+  constructor(private servico: BancoService, private datePipe: DatePipe) { }
 
 
   ngOnInit(): void {
     this.carregarSuinos();
+  }
+
+  monitorar(){
+    this.monitorou = !this.monitorou;
   }
 
   carregarSuinos() {
@@ -45,7 +52,7 @@ export class ControlePesoComponent implements OnInit {
         this.pesos = data;
 
         const ctx = document.getElementById('grafico-peso') as HTMLCanvasElement;
-        const labels = this.pesos.map(peso => peso.dataPesagem);
+        const labels = this.pesos.map(peso => this.datePipe.transform(peso.dataPesagem, 'dd-MM-yyyy'));
         const dados = this.pesos.map(peso => peso.pesoKg);
 
         console.log(labels);
@@ -69,7 +76,7 @@ export class ControlePesoComponent implements OnInit {
                     x: {
                         title: {
                             display: true,
-                            text: 'Data da Pesagem',
+                            text: 'Data da Pesagem (dia-mes-ano)',
                             color: 'white' // Cor do texto do eixo X
                         }
                     },
@@ -85,5 +92,6 @@ export class ControlePesoComponent implements OnInit {
         });
     });
 }
+
 
 }

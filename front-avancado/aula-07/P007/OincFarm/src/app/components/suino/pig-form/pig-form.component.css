@@ -34,14 +34,6 @@
   margin-left: 75px;
 }
 
-.botao1{
-  background-color: white;
-  color: solid #8C4A4A;
-  border-radius: 10px;
-  width: 100px;
-  height: 40px;
-}
-
 mat-label{
   color: #8C4A4A;
 }

@@ -7,7 +7,7 @@
 
     <ng-container matColumnDef="dataDescricao">
       <th mat-header-cell *matHeaderCellDef>Descrição</th>
-      <td mat-cell *matCellDef="let sessao">{{ sessao.data }} # {{ sessao.descricao}}</td>
+      <td mat-cell *matCellDef="let sessao">{{ sessao.data | date: 'dd-MM-yyyy' }} | {{ sessao.descricao }}</td>
     </ng-container>
     
     <ng-container matColumnDef="brinco">

@@ -33,13 +33,6 @@
 margin-left: 75px;
 }
 
-.botao1{
-  background-color: rgb(255, 255, 255);
-  color: solid #8C4A4A;
-  border-radius: 10px;
-  width: 128px;
-  height: 40px;
-}
 
 mat-label{
 color: #8C4A4A;

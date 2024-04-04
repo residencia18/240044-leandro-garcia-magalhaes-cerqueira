@@ -17,7 +17,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrl: './cadastro-peso.component.css'
 })
 
-
 export class CadastroPesoComponent implements OnInit {
   pesoForm!: FormGroup;
   suinos!: Suino[];

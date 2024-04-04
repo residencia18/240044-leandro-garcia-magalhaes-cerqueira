@@ -1,4 +1,4 @@
-<div class="form-container">
+
     <form class="formulario" [formGroup]="pesoForm">
         <h1 class="titulo" mat-dialog-title>{{ data.opcao === 'editar' ? 'Editar Peso' : 'Cadastrar Peso' }}</h1>
 
@@ -26,10 +26,8 @@
                 <input matInput formControlName="pesoKg" placeholder="Peso em Kg" type="number">
                 <mat-error *ngIf="pesoForm.get('pesoKg')?.hasError('required')  && pesoForm.get('pesoKg')?.touched">Campo obrigatório</mat-error>
             </mat-form-field><br>
-            <button mat-raised-button color="primary" class="botao" (click)="onSaveClick()"
-                [disabled]="pesoForm.invalid">Salvar</button>
+            <button mat-raised-button color="basic" class="botao" (click)="onSaveClick()" [disabled]="pesoForm.invalid">Salvar</button>
             <button mat-raised-button color="basic" class="botao" (click)="onCancelClick()">Cancelar</button>
             </div>
     </form>
 
-</div>

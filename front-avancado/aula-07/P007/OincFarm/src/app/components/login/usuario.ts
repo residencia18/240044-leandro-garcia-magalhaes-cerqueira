@@ -10,8 +10,9 @@ export class Usuario {
 
     get token() {
         if (!this._tokenExpirationDate || new Date() > this._tokenExpirationDate) {
-            return null;
+            return '';
         }
         return this._token;
     }
+    
 }
