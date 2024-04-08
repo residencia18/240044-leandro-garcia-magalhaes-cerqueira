@@ -1,23 +1,21 @@
-# Usercrud
-Essa aplicação simples é uma API de uma rede social, feita apenas para o estudo dos assuntos avançados de java.
+## Sobre: Este aplicativo (PWA), chamado "Starbook", é um projeto pessoal destinado a melhorar minhas habilidades como Engenheiro de Software e estudar Java 22 + Spring Boot e o Framework Angular.
 
-# Pré-requisitos
-Certifique-se de ter instalado em sua máquina:
+### Requisitos:
 
-Java Development Kit (JDK) - versão 21.0.2 2024-01-16 LTS ou superior
-Maven - versão 4.0.0 ou superior
-PostgreeSQL (ou outro banco de dados de sua escolha, apenas altere as configurações no arquivo application.properties)
-Git (opcional, se você clonar o repositório)
-IDE - Pode ser qualquer uma da sua escolha
+- Java JDK 22+
+- Angular CLI: 17.2.0
+- Gerenciador de Pacotes: npm 10.3.0
+- Spring Boot 3.2.4
+- Maven 3.6.3 ou posterior
 
 # Configuração
 
 1. Clone o repositório:
-git clone https://github.com/leogmc/240044-leandro-garcia-magalhaes-cerqueira.git
+git clone https://github.com/residencia18/240044-leandro-garcia-magalhaes-cerqueira.git
 
 2. Navegue até o diretório do projeto:
 
-cd java-avancado/aula-04/usercrud
+cd java-avancado/aula-10/starbook
 
 3. Execute o projeto com o Maven:
 
@@ -44,8 +42,7 @@ pom.xml: Arquivo de configuração do Maven, onde estão definidas as dependênc
 
 # Documentação da API:
 
-http://localhost:8080/swagger-ui/index.html#/
-
+http://localhost:8080/swagger-ui/index.html
 
 # Autor:
 Leandro Garcia
