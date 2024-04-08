@@ -60,7 +60,7 @@ public class Book {
 	private String review;
 	
 	@NotEmpty
-	private byte[] cover;
+	private String cover;
 	
 	@NotEmpty
 	@Column(nullable = false)
