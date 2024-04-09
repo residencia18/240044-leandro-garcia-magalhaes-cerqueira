@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Optional;
 
-import org.junit.jupiter.api.BeforeAll;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -38,9 +38,10 @@ public class BookServiceTest {
 	@BeforeEach
 	void setUp() {
 		faker = new Faker();
+		createCovers();
 	}
 	
-	@BeforeAll
+	
 	private void createCovers() {
 	bookCovers = new ArrayList<String>();
 	bookCovers.add("https://th.bing.com/th/id/OIP.fjy0J4oxduE_KEQYBQI6jgHaLY?rs=1&pid=ImgDetMain");
