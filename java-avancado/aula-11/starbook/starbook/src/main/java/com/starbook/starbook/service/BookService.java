@@ -33,6 +33,11 @@ public class BookService {
     	log.info("Find Book by Id method started...");
         return bookRepository.findById(id);
     }
+    
+    public Optional<Book> findByTitle(String title) {
+    	log.info("Find Book by title method started...");
+        return bookRepository.findByTitle(title);
+    }
 
     public Optional<Book> update(Long id, Book updatedBook) {
     	log.info("update Book method started...");

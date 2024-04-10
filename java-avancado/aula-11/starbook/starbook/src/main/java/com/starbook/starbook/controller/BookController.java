@@ -19,7 +19,7 @@ import com.starbook.starbook.model.Book;
 import com.starbook.starbook.service.BookService;
 
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("/api/v1/books")
 public class BookController {
 
     @Autowired
@@ -34,6 +34,12 @@ public class BookController {
     @GetMapping("/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable Long id) {
         Optional<Book> book = bookService.findById(id);
+        return book.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+    
+    @GetMapping("/title/{title}")
+    public ResponseEntity<Book> getBookByTitle(@PathVariable String title) {
+        Optional<Book> book = bookService.findByTitle(title);
         return book.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.starbook.starbook.model.Publisher;
+
 import com.starbook.starbook.repository.PublisherRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +32,11 @@ public class PublisherService {
     public Optional<Publisher> findById(Long id) {
     	log.info("Find Publisher by Id method started...");
         return publisherRepository.findById(id);
+    }
+    
+    public Optional<Publisher> findByName(String name) {
+    	log.info("Find Publisher by Name method started...");
+        return publisherRepository.findByName(name);
     }
 
     public Optional<Publisher> update(Long id, Publisher updatedPublisher) {

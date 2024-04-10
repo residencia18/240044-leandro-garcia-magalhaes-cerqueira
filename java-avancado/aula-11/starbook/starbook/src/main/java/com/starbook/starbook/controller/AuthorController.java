@@ -20,7 +20,7 @@ import com.starbook.starbook.model.Author;
 import com.starbook.starbook.service.AuthorService;
 
 @RestController
-@RequestMapping("/api/authors")
+@RequestMapping("/api/v1/authors")
 public class AuthorController {
 
     @Autowired
@@ -37,7 +37,14 @@ public class AuthorController {
         Optional<Author> author = authorService.findById(id);
         return author.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+    
+    @GetMapping("/name/{name}")
+    public ResponseEntity<Author> getAuthorByName(@PathVariable String name) {
+        Optional<Author> author = authorService.findByName(name);
+        return author.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
+    
     @PostMapping
     public ResponseEntity<Author> createAuthor(@RequestBody Author author) {
         Author createdAuthor = authorService.create(author);

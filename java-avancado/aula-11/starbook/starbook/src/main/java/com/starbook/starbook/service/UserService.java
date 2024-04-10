@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.starbook.starbook.model.User;
+
 import com.starbook.starbook.repository.UserRepository;
 
 import lombok.extern.slf4j.Slf4j;
@@ -35,6 +36,11 @@ public class UserService {
 		log.info("Find User by Id method started...");
 		return userRepository.findById(id);
 	}
+	
+	public Optional<User> findByLogin(String login) {
+    	log.info("Find User by Login method started...");
+        return userRepository.findByLogin(login);
+    }
 
 	
 	public Optional<User> update(Long id, User updatedUser){

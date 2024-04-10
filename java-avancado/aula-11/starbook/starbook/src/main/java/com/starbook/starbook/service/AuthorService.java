@@ -33,6 +33,11 @@ public class AuthorService {
     	log.info("Find Author by Id method started...");
         return authorRepository.findById(id);
     }
+    
+    public Optional<Author> findByName(String name) {
+    	log.info("Find Author by Name method started...");
+        return authorRepository.findByName(name);
+    }
 
     public Optional<Author> update(Long id, Author updatedAuthor) {
     	log.info("update Author method started...");

@@ -1,8 +1,6 @@
 package com.starbook.starbook.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
 
 import java.util.Optional;
 
@@ -62,8 +60,6 @@ public class AuthorRepositoryTest {
 		assertThat(savedAuthor.getId()).isEqualTo(author.getId());
 		assertThat(savedAuthor.getName()).isEqualTo(author.getName());
 		
-		verify(authorRepository).save(any(Author.class));
-		
 	}
 	
 	
@@ -74,6 +70,19 @@ public class AuthorRepositoryTest {
 		Author persistedAuthor = testEntityManager.persistFlushFind(author);
 		
 		Optional<Author> foundAuthor = authorRepository.findById(persistedAuthor.getId());
+		
+		assertThat(foundAuthor).isNotEmpty();
+		assertThat(foundAuthor.get().getId()).isEqualTo(persistedAuthor.getId());
+		
+	}
+	
+	@Test
+	void findAuthor_ByName_ReturnsAuthor() {
+		Author author = generateFakeAuthor();
+		
+		Author persistedAuthor = testEntityManager.persistFlushFind(author);
+		
+		Optional<Author> foundAuthor = authorRepository.findByName(persistedAuthor.getName());
 		
 		assertThat(foundAuthor).isNotEmpty();
 		assertThat(foundAuthor.get().getId()).isEqualTo(persistedAuthor.getId());

@@ -19,7 +19,7 @@ import com.starbook.starbook.model.Publisher;
 import com.starbook.starbook.service.PublisherService;
 
 @RestController
-@RequestMapping("/api/publishers")
+@RequestMapping("/api/v1/publishers")
 public class PublisherController {
 
     @Autowired
@@ -34,6 +34,12 @@ public class PublisherController {
     @GetMapping("/{id}")
     public ResponseEntity<Publisher> getPublisherById(@PathVariable Long id) {
         Optional<Publisher> publisher = publisherService.findById(id);
+        return publisher.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+    
+    @GetMapping("/name/{name}")
+    public ResponseEntity<Publisher> getPublisherByName(@PathVariable String name) {
+        Optional<Publisher> publisher = publisherService.findByName(name);
         return publisher.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 

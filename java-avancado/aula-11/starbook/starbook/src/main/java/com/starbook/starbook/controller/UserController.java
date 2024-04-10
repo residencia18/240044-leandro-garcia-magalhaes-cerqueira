@@ -19,7 +19,7 @@ import com.starbook.starbook.model.User;
 import com.starbook.starbook.service.UserService;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/v1/users")
 public class UserController {
 
     @Autowired
