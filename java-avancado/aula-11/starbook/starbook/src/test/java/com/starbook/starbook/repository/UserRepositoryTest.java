@@ -28,8 +28,8 @@ public class UserRepositoryTest {
 	
 	private User generateFakeUser() {
 		User user = new User();
-		user.setId(faker.number().randomNumber());
 		user.setLogin(faker.name().username());
+		user.setPassword(faker.rickAndMorty().character());
 		return user;
 	}
 

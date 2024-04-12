@@ -49,15 +49,16 @@ public class BookRepositoryTest {
 			Collections.sort(bookCovers);
 			
 			Book book = new Book();
-			book.setId(faker.number().randomNumber());
+//			book.setId(faker.number().randomNumber());
 			book.setTitle(faker.book().title());
 			book.setGenre(faker.book().genre());
 			book.setSubgenre(faker.book().genre());
 			book.setPublication_date(faker.date().birthday());
 			book.setPage_count(faker.number().numberBetween(10, 1000));
 			book.setStars(faker.number().numberBetween(1, 5));
-			book.setReview(faker.lorem().characters(30, 500));
+			book.setReview(faker.lorem().characters(1, 1000));
 			book.setCover(bookCovers.getFirst());
+			book.setPhysical(faker.bool().bool());
 			return book;
 		}
 	
@@ -103,7 +104,7 @@ public class BookRepositoryTest {
 	}
 	
 	@Test
-	void findBook_ByName_ReturnsBook() {
+	void findBook_ByTitle_ReturnsBook() {
 		
 		Book book = generateFakeBook();
 		

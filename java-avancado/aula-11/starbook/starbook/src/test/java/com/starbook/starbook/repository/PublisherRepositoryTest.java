@@ -28,7 +28,6 @@ public class PublisherRepositoryTest {
 	
 	private Publisher generateFakePublisher() {
 		Publisher publisher = new Publisher();
-		publisher.setId(faker.number().randomNumber());
 		publisher.setName(faker.name().fullName());
 		return publisher;
 	}

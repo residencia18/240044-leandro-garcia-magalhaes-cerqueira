@@ -46,7 +46,7 @@ public class Book {
 	private String subgenre;
 	
 	@PastOrPresent
-	@NotEmpty
+	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date publication_date;
 	
@@ -56,18 +56,19 @@ public class Book {
 	@NotNull
 	private Integer stars;
 	
+	@Column(columnDefinition = "VARCHAR(1000)")
 	@NotEmpty
 	private String review;
 	
 	@NotEmpty
 	private String cover;
 	
-	@NotEmpty
+	@NotNull
 	@Column(nullable = false)
     private boolean isPhysical;
 	
 	@ManyToOne
-	@JoinColumn(name = "publisher_id", nullable = false)
+	@JoinColumn(name = "publisher_id")
 	@JsonBackReference
 	private Publisher publisher;
 	

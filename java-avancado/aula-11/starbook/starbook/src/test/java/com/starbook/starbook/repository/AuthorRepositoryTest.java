@@ -28,7 +28,6 @@ public class AuthorRepositoryTest {
 	
 	private Author generateFakeAuthor() {
 		Author author = new Author();
-		author.setId(faker.number().randomNumber());
 		author.setName(faker.name().fullName());
 		return author;
 	}
