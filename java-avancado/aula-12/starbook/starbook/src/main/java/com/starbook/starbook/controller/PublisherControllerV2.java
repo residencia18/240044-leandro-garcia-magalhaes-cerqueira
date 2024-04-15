@@ -14,7 +14,7 @@ import com.starbook.starbook.service.PublisherServiceV2;
 public class PublisherControllerV2 {
 	
 	@Autowired
-    @Qualifier("publisherServiceV2")
+	@Qualifier("v2")
     private PublisherServiceV2 publisherService;
 	
 	@DeleteMapping

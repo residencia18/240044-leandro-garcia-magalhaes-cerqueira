@@ -13,7 +13,7 @@ import com.starbook.starbook.service.AuthorServiceV2;
 public class AuthorControllerV2 {
 	
 	@Autowired
-    @Qualifier("authorServiceV2")
+	@Qualifier("v2")
     private AuthorServiceV2 authorService;
 	
 	@DeleteMapping

@@ -24,7 +24,7 @@ import com.starbook.starbook.service.PublisherServiceV1;
 public class PublisherControllerV1 {
 
     @Autowired
-    @Qualifier("publisherServiceV1")
+    @Qualifier("v1")
     private PublisherServiceV1 publisherService;
 
     @GetMapping

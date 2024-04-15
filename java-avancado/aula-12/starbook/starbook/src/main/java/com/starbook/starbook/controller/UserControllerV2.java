@@ -14,7 +14,7 @@ import com.starbook.starbook.service.UserServiceV2;
 public class UserControllerV2 {
 	
 	@Autowired
-    @Qualifier("userServiceV2")
+	@Qualifier("v2")
     private UserServiceV2 userService;
 	
 	@DeleteMapping

@@ -24,7 +24,7 @@ import com.starbook.starbook.service.UserServiceV1;
 public class UserControllerV1 {
 
     @Autowired
-    @Qualifier("userServiceV1")
+    @Qualifier("v1")
     private UserServiceV1 userService;
 
     @GetMapping

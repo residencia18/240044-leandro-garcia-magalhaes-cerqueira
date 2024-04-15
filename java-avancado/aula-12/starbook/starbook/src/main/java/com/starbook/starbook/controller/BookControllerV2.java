@@ -14,7 +14,7 @@ import com.starbook.starbook.service.BookServiceV2;
 public class BookControllerV2 {
 	
 	@Autowired
-    @Qualifier("bookServiceV2")
+	@Qualifier("v2")
     private BookServiceV2 bookService;
 	
 	@DeleteMapping
