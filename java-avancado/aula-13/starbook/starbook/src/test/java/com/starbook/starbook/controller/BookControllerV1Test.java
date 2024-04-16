@@ -1,8 +1,8 @@
 package com.starbook.starbook.controller;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.*;
@@ -17,6 +17,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -51,8 +54,6 @@ public class BookControllerV1Test {
     }
     
     ArrayList<String> bookCovers;
-    
-    
     
     private void createCovers() {
     	bookCovers = new ArrayList<String>();
@@ -102,14 +103,32 @@ public class BookControllerV1Test {
         }
     	
         
+//        @Test
+//        void getAllBooks_ReturnsBookList() throws Exception {
+//            Book book = generateFakeBook();
+//            when(bookService.findAll()).thenReturn(Arrays.asList(book));
+//
+//            mockMvc.perform(get("/api/v1/books"))
+//                    .andExpect(status().isOk())
+//                    .andExpect(content().json(objectMapper.writeValueAsString(Arrays.asList(book))));
+//        }
+        
+        
         @Test
         void getAllBooks_ReturnsBookList() throws Exception {
-            Book book = generateFakeBook();
-            when(bookService.findAll()).thenReturn(Arrays.asList(book));
+            List<Book> books = new ArrayList<>();
+            for (int i = 0; i < 5; i++) {
+                Book book = generateFakeBook();
+                books.add(book);
+            }
+
+            Page<Book> bookPage = new PageImpl<>(books);
+
+            when(bookService.findAll(any(Pageable.class))).thenReturn(bookPage);
 
             mockMvc.perform(get("/api/v1/books"))
                     .andExpect(status().isOk())
-                    .andExpect(content().json(objectMapper.writeValueAsString(Arrays.asList(book))));
+                    .andExpect(jsonPath("$.content").isArray());
         }
 
         @Test

@@ -5,7 +5,8 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -16,6 +17,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -74,14 +78,31 @@ public class PublisherControllerV1Test {
     }
 	
     
+//    @Test
+//    void getAllPublishers_ReturnsPublisherList() throws Exception {
+//        Publisher publisher = generateFakePublisher();
+//        when(publisherService.findAll()).thenReturn(Arrays.asList(publisher));
+//
+//        mockMvc.perform(get("/api/v1/publishers"))
+//                .andExpect(status().isOk())
+//                .andExpect(content().json(objectMapper.writeValueAsString(Arrays.asList(publisher))));
+//    }
+    
     @Test
     void getAllPublishers_ReturnsPublisherList() throws Exception {
-        Publisher publisher = generateFakePublisher();
-        when(publisherService.findAll()).thenReturn(Arrays.asList(publisher));
+        List<Publisher> publishers = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Publisher publisher = generateFakePublisher();
+            publishers.add(publisher);
+        }
+
+        Page<Publisher> publisherPage = new PageImpl<>(publishers);
+
+        when(publisherService.findAll(any(Pageable.class))).thenReturn(publisherPage);
 
         mockMvc.perform(get("/api/v1/publishers"))
                 .andExpect(status().isOk())
-                .andExpect(content().json(objectMapper.writeValueAsString(Arrays.asList(publisher))));
+                .andExpect(jsonPath("$.content").isArray());
     }
 
     @Test

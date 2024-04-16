@@ -4,12 +4,9 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
-
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -78,21 +75,23 @@ public class AuthorControllerV1Test {
     }
 	
     
-	//    @Test
-	//    void getAllAuthors_ReturnsAuthorList() throws Exception {
-	//    	
-	//    	Page<Author> authorPage = new PageImpl<>(Collections.singletonList(author));
-	//
-	//    	for (i = 0; i < 5; i++) {
-	//    		
-	//    	}
-	//    	    
-	//        when(authorService.findAll(any(Pageable.class))).thenReturn(authorPage);
-	//
-	//        mockMvc.perform(get("/api/v1/authors"))
-	//                .andExpect(status().isOk())
-	//                .andExpect(content().json(objectMapper.writeValueAsString(authorPage.getContent())));
-	//    }
+    @Test
+    void getAllAuthors_ReturnsAuthorList() throws Exception {
+        List<Author> authors = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Author author = generateFakeAuthor();
+            authors.add(author);
+        }
+
+        Page<Author> authorPage = new PageImpl<>(authors);
+
+        when(authorService.findAll(any(Pageable.class))).thenReturn(authorPage);
+
+        mockMvc.perform(get("/api/v1/authors"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.content").isArray());
+    }
+
 
 
     @Test
@@ -127,11 +126,6 @@ public class AuthorControllerV1Test {
                 .andExpect(status().isOk())
                 .andExpect(content().json(objectMapper.writeValueAsString(updatedAuthor)));
     }
-    
-    
-    
-    
-    
     
 
 }
