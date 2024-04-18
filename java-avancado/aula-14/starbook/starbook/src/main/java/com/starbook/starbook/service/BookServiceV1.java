@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -27,6 +28,7 @@ public class BookServiceV1 {
     private BookRepository bookRepository;
     
     
+    @Cacheable("booksSorted")
     public List<Book> findAllSorted(String[] sort) {
         List<Order> orders = new ArrayList<>();
         for (String sortOrder : sort) {
@@ -45,12 +47,14 @@ public class BookServiceV1 {
         return Sort.Direction.ASC;
     }
 
+    @Cacheable("booksPageables")
     public Page<Book> findAll(Pageable pageable) {
     	log.info("Find all books method started...");
         return bookRepository.findAll(pageable);
         
     }
-       
+    
+    @Cacheable("books")
     public List<Book> findAll() {
     	log.info("Find all books method started...");
         return bookRepository.findAll();
@@ -62,11 +66,13 @@ public class BookServiceV1 {
         
     }
 
+    @Cacheable("bookById")
     public Optional<Book> findById(Long id) {
     	log.info("Find Book by Id method started...");
         return bookRepository.findById(id);
     }
-    
+  
+    @Cacheable("bookByTitle")
     public Optional<Book> findByTitle(String title) {
     	log.info("Find Book by title method started...");
         return bookRepository.findByTitle(title);

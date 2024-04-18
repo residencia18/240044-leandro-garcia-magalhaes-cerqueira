@@ -67,19 +67,17 @@ export class BancoService {
     }))
   }
 
-  apagarSuino(id: string){
+  
+  apagarSuino(id: string): Observable<any> {
     const url = this.getResourceUrl('suinos', id);
-    this.http.delete(url).subscribe((responseData => {
-      console.log(responseData);
-    }))
+    return this.http.delete(url);
   }
 
-  getSuino(id: string) {
+  getSuino(id: string): Observable<any> {
     const url = this.getResourceUrl('suinos', id);
-    this.http.get(url).subscribe((responseData => {
-      console.log(responseData);
-    }))
+    return this.http.get(url);
   }
+  
 
   editarSuino(id: string, suino: Suino){
     const url = this.getResourceUrl('suinos', id);
