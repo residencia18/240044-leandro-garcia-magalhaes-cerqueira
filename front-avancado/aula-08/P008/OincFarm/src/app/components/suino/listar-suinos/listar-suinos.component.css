@@ -1,0 +1,80 @@
+.content{
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+
+.titulo{
+  display: flex;
+  font-family:Arial, Helvetica, sans-serif;
+  color:#ffffff;
+}
+
+#btnEditar{
+  color:#8C4A4A;
+  background-color: #F2C4C8;
+  border: 1px solid #8C4A4A; 
+}
+
+#btnExcluir{
+  color:#F2C4C8;
+  background-color: #8C4A4A;
+  border: 1px solid #8C4A4A; 
+}
+
+.filtros{
+  
+  border-radius: 10px;
+  background-color: #8C4A4A;
+  color: white;
+  padding: 20px;
+}
+
+.label{
+  margin-left: 10px;
+  border: none;
+  border-radius: 5px;
+  height: 20px;
+  width: 150px;
+}
+
+.botao{
+  background-color: #8C4A4A;
+  color:  white;
+  border: 2px solid #F2C4C8;
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+}
+
+.botao:hover {
+  background-color: #F2C4C8;
+  color: #8C4A4A; 
+  border: 2px solid #8C4A4A;
+}
+
+#botaoLimpar{
+  margin-left: 10px;
+}
+
+
+
+
+#lb2{
+  margin-left: 20px;
+}
+
+#lb3{
+  padding-right: 10px;
+  margin-left: 20px;
+}
+
+#lb5{
+  padding-right: 10px;
+  margin-left: 12px;
+}
+
+#lb6{
+  padding-right: 10px;
+  margin-left: 20px;
+}
+

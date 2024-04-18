@@ -1,5 +1,5 @@
-import { HttpClient} from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpParams} from '@angular/common/http';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable, catchError, map, of,tap } from 'rxjs';
 import { Suino } from '../components/suino/suino';
 import { PesoSuino } from '../components/peso/pesoSuino';
@@ -9,11 +9,23 @@ import { Sessao } from '../components/sessoes/sessao';
   providedIn: 'root'
 })
 
-export class BancoService {
+export class BancoService implements OnInit {
 
-  apiURL = 'https://oincfarm-97b0a-default-rtdb.firebaseio.com/';
+  apiURL = 'https://oincfarm-97b0a-default-rtdb.firebaseio.com/suinos.json';
 
   constructor(private http: HttpClient) { }
+
+  ngOnInit(): void {}
+
+  verificarBrincoExistente(brinco: string): Observable<boolean> {
+    return this.http.get(`${this.apiURL}?orderBy="brinco"&equalTo="${brinco}"`)
+      .pipe(
+        map(response => {
+          // Se a resposta não for nula e tiver propriedades, significa que o brinco existe
+          return response !== null && Object.keys(response).length > 0;
+        })
+      );
+  }
 
   // PESO DO SUINO ------------------------------------------------->
 
@@ -29,38 +41,40 @@ export class BancoService {
   }
 
   getSuinos() {
-    return this.http.get<{ [key: string]: Suino }>(`${this.apiURL}/suinos.json`).pipe(
-      map((responseData) => {
-        const listaArray: Suino[] = [];
-        for (const key in responseData) {
-          if ((responseData).hasOwnProperty(key)) {
-            listaArray.push({ ...(responseData as any)[key], id: key });
-          }
+    return this.http
+      .get<{ [key: string]: Suino }>(
+        'https://oincfarm-97b0a-default-rtdb.firebaseio.com/suinos.json',
+        {
+          params: new HttpParams().set('print', 'pretty'),
         }
-        return listaArray;
-      }
-      ),
-    );
+      )
+      .pipe(
+        map((responseData) => {
+          const postArray: Suino[] = [];
+          for (const key in responseData) {
+            if (responseData.hasOwnProperty(key)) {
+              postArray.push({ ...(responseData as any)[key], id: key });
+            }
+          }
+          return postArray;
+        })
+      );
   }
 
   apagarTodosSuinos() {
     return this.http.delete(`${this.apiURL}/suinos.json`);
   }
 
-  apagarSuino(id: string): Observable<any> {
-    const url = `${this.apiURL}/suinos/${id}.json`;
-    return this.http.delete(url);
+  apagarSuino(id: string) {
+    return this.http.delete(
+      `https://oincfarm-97b0a-default-rtdb.firebaseio.com/suinos/${id}.json`
+    );
   }
 
-  getSuino(id: string): Observable<Suino> {
-    const url = `${this.apiURL}/suinos/${id}.json`;
-    return this.http.get<Suino>(url)
-      .pipe(
-        tap((suino: Suino) => {
-          console.log('Detalhes do Suíno:', suino);
-        }),
-        catchError(this.handleError<any>('getSuino'))
-      );
+  getSuino(id: string) {
+    return this.http.get<Suino>(
+      `https://oincfarm-97b0a-default-rtdb.firebaseio.com/suinos/${id}.json`
+    );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -69,16 +83,6 @@ export class BancoService {
       return of(result as T);
     };
 
-  }
-
-  verificarBrincoExistente(brinco: string): Observable<boolean> {
-    return this.http.get(`${this.apiURL}?orderBy="brinco"&equalTo="${brinco}"`)
-      .pipe(
-        map(response => {
-          // Se a resposta não for nula e tiver propriedades, significa que o brinco existe
-          return response !== null && Object.keys(response).length > 0;
-        })
-      );
   }
 
   editarSuino(id: string, suino: Suino) {

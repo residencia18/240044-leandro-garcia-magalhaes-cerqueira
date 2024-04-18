@@ -1,0 +1,23 @@
+
+<div class="container">
+    <div class="header">
+        <div class="logo">
+            <img src="../assets/oinc-farm-logo-2.png" alt="Logo da OincFarm" width="110" height="60" (click)="goToHome()">
+        </div>
+        
+        @if(authService.currentUserSig()){
+            <span (click)="logout()">Logout</span>         
+            }
+    </div>
+
+ 
+
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+
+
+    <div class="footer">
+        <p class="footerText">&copy; 2024 Residência - Feito por: Leandro Garcia <a href="https://github.com/leogmc">(github.com/leogmc)</a> & Lorena Andrade <a href="https://github.com/lorenaandradeba">(github.com/lorenaandradeba)</a></p>
+    </div>
+  </div>

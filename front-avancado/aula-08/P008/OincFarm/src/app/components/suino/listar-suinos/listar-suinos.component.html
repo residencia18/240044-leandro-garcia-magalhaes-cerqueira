@@ -1,0 +1,109 @@
+<div class="content">
+<p *ngIf="loadedSuinos.length < 1">Não existem suínos cadastrados!</p>
+
+<div *ngIf="loadedSuinos.length >= 1">
+  <h2 class="titulo">Listagem de Suínos</h2>
+
+<h3 class="titulo">Filtrar por:</h3>
+<!-- Filtros -->
+<div class="filtros">
+
+  <label id="lb1" for="filtroBrincoPai">Brinco do Pai:</label>
+  <input class="label" type="text" id="filtroBrincoPai" [(ngModel)]="filtroBrincoPai">
+
+  <label id="lb2" for="filtroDataNascimento">Data de Nascimento:</label>
+  <input class="label" type="text" id="filtroDataNascimento" [(ngModel)]="filtroDataNascimento">
+
+  <label id="lb3" class="label" for="filtroSexo">Sexo:</label>
+  <select id="filtroSexo" [(ngModel)]="filtroSexo">
+    <option value="M">Macho</option>
+    <option value="F">Fêmea</option>
+  </select>
+
+  <br>
+  <br>
+
+  <label id="lb4" for="filtroBrincoMae">Brinco da Mãe:</label>
+  <input class="label" type="text" id="filtroBrincoMae" [(ngModel)]="filtroBrincoMae">
+
+  <label id="lb5" for="filtroDataSaida">Data de Saída:</label>
+  <input class="label" type="text" id="filtroDataSaida" [(ngModel)]="filtroDataSaida">
+
+  
+
+  <label id="lb6" for="filtroStatus">Status:</label>
+  <select id="filtroStatus" [(ngModel)]="filtroStatus">
+    <option value="Ativo">Ativo</option>
+    <option value="Vendido">Vendido</option>
+    <option value="Morto">Morto</option>
+  </select>
+
+  <br>
+  <br>
+  <button class="botao" id="botaoFiltrar" (click)="filtrarSuinos()">Aplicar Filtros</button>
+  <button class="botao" id="botaoLimpar" (click)="limparFiltros()">Limpar Filtros</button>
+</div>
+<br>
+
+<!-- Tabela -->
+
+
+  <table mat-table [dataSource]="filteredSuinos" class="mat-elevation-z8">
+    <ng-container matColumnDef="brinco">
+      <th mat-header-cell *matHeaderCellDef> Brinco</th>
+      <td mat-cell *matCellDef="let element"> {{element.brinco}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="brincoPai">
+      <th mat-header-cell *matHeaderCellDef> Brinco Pai </th>
+      <td mat-cell *matCellDef="let element"> {{element.brincoPai}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="brincoMae">
+      <th mat-header-cell *matHeaderCellDef> Brinco Mãe </th>
+      <td mat-cell *matCellDef="let element"> {{element.brincoMae}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataNascimento">
+      <th mat-header-cell *matHeaderCellDef> Data de Nascimento </th>
+      <td mat-cell *matCellDef="let element"> {{element.dataNascimento}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dataSaida">
+      <th mat-header-cell *matHeaderCellDef> Data de Saída </th>
+      <td mat-cell *matCellDef="let element"> {{element.dataSaida}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="sexo">
+      <th mat-header-cell *matHeaderCellDef> Sexo </th>
+      <td mat-cell *matCellDef="let element"> {{element.sexo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="idade">
+      <th mat-header-cell *matHeaderCellDef> Idade </th>
+      <td mat-cell *matCellDef="let element"> {{ formatarData(element.dataNascimento) | calcularIdade }} </td>
+    </ng-container>
+
+    <!-- Coluna de ações -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Ações </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" id="btnEditar" routerLink="/editarSuino/{{element.id}}">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" id="btnExcluir" (click)="apagarSuino(element.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+</div>
