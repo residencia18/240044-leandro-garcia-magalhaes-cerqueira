@@ -44,8 +44,8 @@ export class BancoService {
 
   // SUÍNOS ---------------------------------------------------------
 
-  addSuino(suinoData: any) {
-    const url = this.getResourceUrl('suinos');
+  addSuino(idSuino: string, suinoData: Suino) {
+    const url = this.getResourceUrl('suinos', idSuino);
     this.http.post(url, suinoData).subscribe((responseData => {
       console.log(responseData);
     }))     
@@ -82,6 +82,8 @@ export class BancoService {
   editarSuino(id: string, suino: Suino){
     const url = this.getResourceUrl('suinos', id);
     return this.http.put(url, suino, { observe: 'response' });
+
+    
   }
 
   // PESOS DE SUÍNOS ------------------------------------------------
@@ -208,6 +210,12 @@ export class BancoService {
         console.log('Detalhes da sessao:', sessao);
       }),
       catchError(this.handleError<any>('getSessao'))
+    );
+  }
+
+  getSessoesByBrinco(brincoSuino: string): Observable<Sessao[]> {
+    return this.getSessoes().pipe(
+      map(sessoes => sessoes.filter(sessao => sessao.brincos.some((brinco: any) => brinco === brincoSuino)))
     );
   }
 

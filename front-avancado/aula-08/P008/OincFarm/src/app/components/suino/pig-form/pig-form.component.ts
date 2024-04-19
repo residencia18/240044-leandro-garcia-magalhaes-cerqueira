@@ -91,7 +91,7 @@ export class PigFormComponent {
             sexo: sexo.value,
           };
           // Chama o método addSuino() para enviar os dados do usuário
-          this.dataBaseService.addSuino(dadosSuino);
+          this.dataBaseService.addSuino(this.exemploForm.value.brinco, dadosSuino);
           this.snackBar.open('Suíno cadastrado com sucesso!', 'Fechar', { duration: 2000 });
           this.redirecionaPrincipal();
           console.log('Dados do suíno:', dadosSuino);

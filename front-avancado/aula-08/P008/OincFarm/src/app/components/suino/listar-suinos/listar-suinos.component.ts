@@ -101,9 +101,7 @@ export class ListarSuinosComponent implements OnInit {
     });
   }
   
- 
 
-  
   constructor(private datePipe: DatePipe, private bancoService: BancoService, private snackBar: MatSnackBar, private location : Location) { }
 
   ngOnInit():void{

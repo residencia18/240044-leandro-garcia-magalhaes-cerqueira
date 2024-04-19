@@ -17,6 +17,7 @@ export const routes: Routes = [
     { path: 'cadastroSessao', loadComponent:() => import('./components/sessoes/cadastro-sessao/cadastro-sessao.component').then(comp => comp.CadastroSessaoComponent), canActivate: [AuthGuard] },
     { path: 'sessoes', loadComponent:() => import('./components/sessoes/lista-sessoes/lista-sessoes.component').then(comp => comp.ListaSessoesComponent), canActivate: [AuthGuard] },
     { path: 'sessoes/:id', loadComponent:() => import('./components/sessoes/sessao/sessao.component').then(comp => comp.SessaoComponent), canActivate: [AuthGuard] },
+    { path: 'historicoSuino', loadComponent:() => import('./components/suino/historico-animal/historico-animal.component').then(comp => comp.HistoricoAnimalComponent), canActivate: [AuthGuard] },
     { path: '', redirectTo: '/login', pathMatch: 'full' },
 ];
 
