@@ -1,16 +1,26 @@
+.content{
+  display: flex;
+  max-height: 600px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: aqua;
+  padding: 100px;
+  text-align: center;
+  
+}
+
+
+
 .formulario {
     border: solid 4px #652c2c;
     box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.4); /* Sombra */
     background-color:#ffffff;
     border-radius: 5px;
-    padding: 20px;
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
+    padding: 30px;
+    width: 300px;
     margin: 0 auto; /* Define margens automáticas para alinhar o elemento ao centro horizontalmente */
-    text-align:start;
-    margin-bottom: 30px;
-    text-align:center;
+    margin: 50px;
+   
   }
 
   .form {
@@ -55,8 +65,12 @@
   border-bottom: 1px solid #8C4A4A;
 }
 
-
-
 mat-label{
   color: #8C4A4A;
+}
+
+
+.mat-elevation-z8{
+  border: solid 2px #652c2c;
+  border-radius: 5px;
 }
