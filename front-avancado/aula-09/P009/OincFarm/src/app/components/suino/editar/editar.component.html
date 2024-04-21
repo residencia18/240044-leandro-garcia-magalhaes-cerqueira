@@ -1,0 +1,98 @@
+<div class="content">
+    <form class="formulario" [formGroup]="suinoForm" (ngSubmit)="salvarSuino()">
+        <h2 class="titulo">Editar cadastro do Suíno</h2>
+    
+        <mat-form-field appearance="outline" class="form" >
+            <mat-label>Brinco do animal</mat-label>
+            <input matInput formControlName="brinco" name="brinco">
+        </mat-form-field>
+        <div>
+            <span class="span" *ngIf="!suinoForm.get('brinco')?.valid && suinoForm.get('brinco')?.touched">
+            * Campo obrigatório <br>
+            * Só pode conter números<br>      
+            </span>
+        </div>
+        <br>
+     
+          <mat-form-field appearance="outline" class="form" >
+            <mat-label>Brinco do pai</mat-label>
+            <input matInput formControlName="brincoPai" name="brincoPai">
+           
+          </mat-form-field>
+          <div>
+            <span class="span" *ngIf="!suinoForm.get('brincoPai')?.valid && suinoForm.get('brincoPai')?.touched">
+            * Campo obrigatório <br>
+            * Só pode conter números<br>      
+            </span>
+        </div>
+        <br>
+    
+              <mat-form-field appearance="outline" class="form" >
+                <mat-label>Brinco da mãe</mat-label>
+                <input matInput formControlName="brincoMae" name="brincoMae">
+                
+              </mat-form-field>
+              <div>
+                <span class="span" *ngIf="!suinoForm.get('brincoMae')?.valid && suinoForm.get('brincoMae')?.touched">
+                * Campo obrigatório <br>
+                * Só pode conter números<br>      
+                </span>
+            </div>
+            <br>
+    
+              <mat-form-field appearance="outline" class="form">
+                <mat-label>Data de nascimento</mat-label> 
+            <input matInput formControlName="dataNascimento" name="dataNascimento" placeholder="(dd/mm/aaaa)">
+                
+            </mat-form-field>
+            <div>
+                <span class="span" *ngIf="!suinoForm.get('dataNascimento')?.valid && suinoForm.get('dataNascimento')?.touched">
+                    * Insira uma data válida (dd/mm/aaaa) <br>
+                </span>
+            </div>
+            <br>
+              
+            <mat-form-field appearance="outline" class="form">
+                <mat-label>Data de saída</mat-label> 
+            <input matInput formControlName="dataSaida" name="dataSaida" placeholder="(dd/mm/aaaa)">
+                
+            </mat-form-field>
+            <div>
+                <span class="span" *ngIf="!suinoForm.get('dataSaida')?.valid && suinoForm.get('dataSaida')?.touched">
+                    * Insira uma data válida (dd/mm/aaaa) <br>
+                </span>
+            </div>
+            <br>
+            <div class="seletores">
+    
+            <mat-form-field appearance="outline">
+                <mat-label for="status">Status do animal</mat-label>
+                <mat-select formControlName="status" id="status">
+                  <mat-option value="Ativo">Ativo</mat-option>
+                  <mat-option value="Vendido">Vendido</mat-option>
+                  <mat-option value="Morto">Morto</mat-option>
+                </mat-select> 
+            </mat-form-field>
+            
+    
+            <mat-form-field class="sexo" appearance="outline">
+                <mat-label for="sexo">Sexo do animal</mat-label>
+                <mat-select formControlName="sexo" id="sexo">
+                  <mat-option value="M">M</mat-option>
+                  <mat-option value="F">F</mat-option>
+                </mat-select>           
+            </mat-form-field>             
+            </div>
+          
+      <br>
+        
+      <button mat-raised-button color="primary" class="botao1" [disabled]="!suinoForm.valid">Alterar</button>
+    
+    </form>
+    </div>
+    
+    
+    
+    
+    
+    

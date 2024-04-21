@@ -1,0 +1,23 @@
+<div class="tabela">
+<table>
+  <!-- Cabeçalho da tabela -->
+  <thead>
+    <tr>
+      <th>Brinco</th>
+      <th *ngFor="let atividade of atividades">{{ atividade }}</th>
+    </tr>
+  </thead>
+  <!-- Corpo da tabela -->
+  <tbody>
+    <tr *ngFor="let brinco of brincos">
+      <td>{{ brinco }}</td>
+      <td *ngFor="let atividade of atividades">
+        <input type="checkbox" [ngModel]="buscarAtividade(brinco, atividade)" (ngModelChange)="atualizarStatusAtividade(brinco, atividade, $event)">
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<br>
+<!-- Botão para imprimir -->
+<button mat-raised-button color="primary" class="botao" (click)="imprimir()">Imprimir</button>
