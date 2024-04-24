@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div *ngFor="let item of itensList(); let i = index">
+  <div class="item">
+    <div class="cover">
+      <img src="{{ item.imgURL }}" width="140" height="200"/>
+    </div>
+
+    <div class="description">
+      <h3 class="name">{{ item.name }}</h3>
+      <h3 class="price">${{ item.price }}</h3>
+      <select class="quantity">
+        <option selected>Qtd.</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+      <div class="button">
+      <button class="cart-button">Add to cart</button>
+      </div>
+    </div>
+  </div>
+</div>

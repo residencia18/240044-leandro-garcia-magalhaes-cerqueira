@@ -1,0 +1,39 @@
+.header{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content:space-between;
+    color: aliceblue;
+    background-color:rgb(34, 52, 67);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+}
+
+.title{
+    margin-left: 30px;
+}
+
+.cart-icon{
+    fill: #ff8c00;
+    width: 60px;
+    height: 60px;
+}
+
+.cart{
+    color: transparent;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+.cart:hover{
+    color: white;
+    margin-right: 35px;
+    transition-duration: 0.3s;
+}
+
+.text{
+    padding-left: 10px;
+}
