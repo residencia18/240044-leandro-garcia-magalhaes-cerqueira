@@ -13,6 +13,11 @@ import { RouterModule } from '@angular/router';
 })
 export class ProductListComponent {
 
+  ngOnInit(): void {
+    console.log("PRODUCT LIST COMPONENT CALLED!");
+}
+
+
   shoppingCartItens: Item[] = [
 
     {id: 1, name: 'Grand Theft Auto: San Andreas', price: 25.99, quantity: 1, imgURL: 'https://i.pinimg.com/736x/da/83/b5/da83b5be6c980836684ebfd0d935eabc.jpg'},

@@ -114,10 +114,10 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-maven-plugin</artifactId>
                 <configuration>
-                    <url>jdbc:postgresql://localhost:5432/app_test_flyway</url>
+                    <url>jdbc:postgresql://localhost:5432/starbook</url>
                     <user>${database.username}</user>
                     <password>${database.password}</password>
-                    <locations>classpath:db/migration</locations>
+                    <locations>classpath:db/migrations/Versioned_Migrations</locations>
                 </configuration>
             </plugin>
 

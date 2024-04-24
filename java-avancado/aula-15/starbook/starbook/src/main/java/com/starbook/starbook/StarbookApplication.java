@@ -46,7 +46,7 @@ public class StarbookApplication {
         Faker faker = new Faker();
 
         // Criando alguns autores
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 100; i++) {
             Author author = new Author();
             author.setName(faker.book().author());
             authorService.create(author);
@@ -60,7 +60,7 @@ public class StarbookApplication {
             book.setSubgenre(faker.book().genre());
             book.setPublication_date(faker.date().birthday());
             book.setPage_count(faker.number().numberBetween(100, 1000));
-            book.setStars(faker.number().numberBetween(1, 5));
+            book.setStars(faker.number().numberBetween(1, 6));
             book.setReview(faker.lorem().paragraph());
             book.setCover(faker.internet().image());
             book.setPhysical(faker.bool().bool());
@@ -75,7 +75,7 @@ public class StarbookApplication {
         }
 
         // Criando um conjunto de usuários
-        for (int i = 0; i < 300; i++) {
+        for (int i = 0; i < 200; i++) {
             User user = new User();
             user.setLogin(faker.internet().emailAddress());
             user.setPassword(faker.internet().password());

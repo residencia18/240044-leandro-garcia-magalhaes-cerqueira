@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
 import { RouterModule } from '@angular/router';
 
@@ -10,6 +10,11 @@ import { RouterModule } from '@angular/router';
     styleUrl: './shopping-cart.component.css',
     imports: [HeaderComponent, RouterModule]
 })
-export class ShoppingCartComponent {
+export class ShoppingCartComponent implements OnInit{
+
+    ngOnInit(): void {
+        throw new Error('SHOPPING CART COMPONENT CALLED!');
+    }
+
 
 }
