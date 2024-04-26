@@ -19,7 +19,6 @@
     font-weight: 600;
     width: 100px;
     height: 30px;
-    margin-top: 20px;
     border: 0;
     border-radius: 5px;
     background-color:darkorange;
@@ -29,12 +28,30 @@
     background-color:gold;
     transition-duration: 0.3s;
     width: 110px;
-    height: 40px;
+  
+}
+
+.cart-button:active{
+    background-color:lightgreen;
+    transition-duration: 0.3s;
+    width: 110px;
+  
 }
 
 .cover{
     border: 5px solid black;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Define a altura mínima como 100% da viewport */
+  }
+  
+  .footer {
+    flex: none; /* Evita que o footer cresça */
+  }
+  
   
 
 

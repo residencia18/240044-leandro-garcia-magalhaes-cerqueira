@@ -1,2 +1,40 @@
+<!-- shopping-cart.html-->
+<div class="shopping-cart">
 <app-header></app-header>
-<p>shopping-cart works!</p>
+<div class="content">
+  <div class="items">
+    <div *ngFor="let item of cartItems(); let i = index">
+      <div class="item">
+        <div class="cover">
+          <img src="{{ item.imgURL }}" width="70" height="100" />
+        </div>
+
+        <div class="description">
+          <h4 class="name">{{ item.name }}</h4>
+
+          <div class="others">
+            <h4 class="price">${{ item.price }}</h4>
+            <select
+              class="quantity"
+              [ngModel]="item.quantity"
+              (change)="updateQuantity(item, $any($event.target).value)"
+            >
+              <option disabled value="">Qtd</option>
+              <option *ngFor="let q of qtyAvaible()">{{ q }}</option>
+            </select>
+            <button class="delete-button" (click)="deleteItem(item)">
+              Delete Item
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="sub-total">
+    <h2>Total: ${{ subtotal() }}</h2>
+  </div>
+</div>
+<div class="footer">
+<app-footer></app-footer>
+</div>
+</div>

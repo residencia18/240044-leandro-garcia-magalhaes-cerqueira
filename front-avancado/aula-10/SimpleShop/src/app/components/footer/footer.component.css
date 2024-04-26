@@ -1,0 +1,11 @@
+.footer{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    align-content: center;
+    justify-content:center;
+    color: aliceblue;
+    background-color:rgb(34, 52, 67);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}

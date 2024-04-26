@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { ProductListComponent } from '../product-list/product-list.component';
-import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
+import { Router, RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule, ProductListComponent, ShoppingCartComponent],
+  imports: [RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
 
-  constructor() {}
+  constructor(private router : Router) {}
 
-  
-
+  goToCart() {
+    this.router.navigate(['/cart']);
+  }
 
 }
