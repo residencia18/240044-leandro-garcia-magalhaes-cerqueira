@@ -17,10 +17,10 @@ public class UserControllerV2 {
 	@Qualifier("v2")
     private UserServiceV2 userService;
 	
-	@DeleteMapping
-	public ResponseEntity<Void> deleteAllUsers(){
-		userService.deleteAllUsers();
-		return ResponseEntity.noContent().build();
-	}
-	
+//	@DeleteMapping
+//	public ResponseEntity<Void> deleteAllUsers(){
+//		userService.deleteAllUsers();
+//		return ResponseEntity.noContent().build();
+//	}
+//	
 }

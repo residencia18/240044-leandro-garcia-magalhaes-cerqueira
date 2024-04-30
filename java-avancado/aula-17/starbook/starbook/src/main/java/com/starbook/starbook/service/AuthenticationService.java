@@ -1,6 +1,6 @@
 package com.starbook.starbook.service;
 
-import org.springframework.jdbc.core.simple.JdbcClient;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -20,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
+	
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -27,12 +28,11 @@ public class AuthenticationService {
     private final JwtProvider jwtProvider;
     private final UserMapper userMapper;
     
-    JdbcClient jdbcClient;
 
     public void register(RegisterRequest registerRequest) {
         User user = userMapper.fromRegisterRequest(registerRequest);// Usando o UserMapper para criar o objeto User
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.saveUser(user, jdbcClient);
+        userRepository.saveUser(user);
     }
 
     public LoginResponse login(LoginRequest loginRequest) {

@@ -13,10 +13,10 @@ public class UserServiceV2 extends UserServiceV1 {
 	@Autowired
 	UserRepository userRepository;
 	
-	public void deleteAllUsers() {
-		userRepository.deleteAll();
-	}
-	
+//	public void deleteAllUsers() {
+//		userRepository.deleteAll();
+//	}
+//	
 	
 
 }

@@ -12,17 +12,17 @@ import com.starbook.starbook.repository.UserRepository;
 @ExtendWith(MockitoExtension.class)
 public class UserServiceV2Test {
 	
-	@Mock
-	private UserRepository userRepository;
-	
-	@InjectMocks
-	private UserServiceV2 userService;
-	
-	@Test
-	void deleteAllUsers_ShouldCallRepositoryDeleteAll() {
-		
-		userService.deleteAllUsers();
-		verify(userRepository).deleteAll();
-	}	
+//	@Mock
+//	private UserRepository userRepository;
+//	
+//	@InjectMocks
+//	private UserServiceV2 userService;
+//	
+//	@Test
+//	void deleteAllUsers_ShouldCallRepositoryDeleteAll() {
+//		
+//		userService.deleteAllUsers();
+//		verify(userRepository).deleteAll();
+//	}	
 
 }
