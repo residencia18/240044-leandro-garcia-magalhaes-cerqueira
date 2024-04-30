@@ -64,7 +64,7 @@ public class Book {
 	private String cover;
 	
 	@NotNull
-	@Column(nullable = false)
+	@Column(nullable = false, name = "is_physical")
     private boolean isPhysical;
 	
 	@ManyToOne

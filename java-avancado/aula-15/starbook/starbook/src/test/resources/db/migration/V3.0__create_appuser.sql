@@ -1,4 +1,4 @@
-create table app_user (
+create table APP_USER (
 id SERIAL,
 login VARCHAR (255),
 password VARCHAR (255),

@@ -10,6 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.core.simple.JdbcClient;
 
 import com.github.javafaker.Faker;
 import com.starbook.starbook.model.User;
@@ -26,9 +27,11 @@ public class UserRepositoryV1Test {
 	@Autowired
 	private Faker faker;
 	
+	JdbcClient jdbcClient;
+	
 	private User generateFakeUser() {
 		User user = new User();
-		user.setLogin(faker.name().username());
+		user.setUsername(faker.name().username());
 		user.setPassword(faker.rickAndMorty().character());
 		return user;
 	}
@@ -58,7 +61,7 @@ public class UserRepositoryV1Test {
 		
 		assertThat(savedUser).isNotNull();
 		assertThat(savedUser.getId()).isEqualTo(user.getId());
-		assertThat(savedUser.getLogin()).isEqualTo(user.getLogin());
+		assertThat(savedUser.getUsername()).isEqualTo(user.getUsername());
 		
 	}
 	
@@ -76,12 +79,12 @@ public class UserRepositoryV1Test {
 	}
 	
 	@Test
-	void findUser_ByLogin_ReturnsUser() {
+	void findUser_ByUsername_ReturnsUser() {
 		User user = generateFakeUser();
 		
 		User persistedUser = testEntityManager.persistFlushFind(user);
 		
-		Optional<User> foundUser = userRepository.findByLogin(persistedUser.getLogin());
+		Optional<User> foundUser = userRepository.findByUsername(persistedUser.getUsername(), jdbcClient);
 		
 		assertThat(foundUser).isNotEmpty();
 		assertThat(foundUser.get().getId()).isEqualTo(persistedUser.getId());

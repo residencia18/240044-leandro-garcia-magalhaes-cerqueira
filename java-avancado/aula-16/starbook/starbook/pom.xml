@@ -18,7 +18,7 @@
 		<java.version>22</java.version>
 		
 		   <database.username>postgres</database.username>        <!-- flyway.database.username -->
-        <database.password>1234</database.password> <!-- flyway.database.password -->
+        <database.password>root</database.password> <!-- flyway.database.password -->
 	</properties>
 	<dependencies>
 		<dependency>
@@ -29,6 +29,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
 
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -38,7 +39,6 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -92,6 +92,44 @@
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 		 </dependency>
+		 
+		 <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+      
+		 <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        
+         <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        
+		
+		
+		
+		
 
 	</dependencies>
 
@@ -117,7 +155,7 @@
                     <url>jdbc:postgresql://localhost:5432/starbook</url>
                     <user>${database.username}</user>
                     <password>${database.password}</password>
-                    <locations>classpath:db/migrations/Versioned_Migrations</locations>
+                    <locations>classpath:db/migration</locations>
                 </configuration>
             </plugin>
 

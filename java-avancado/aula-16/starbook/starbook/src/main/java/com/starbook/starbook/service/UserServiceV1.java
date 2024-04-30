@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.context.annotation.Primary;
+import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Service;
 
 import com.starbook.starbook.model.User;
@@ -20,6 +21,8 @@ import lombok.extern.slf4j.Slf4j;
 @Primary
 @Qualifier("v1")
 public class UserServiceV1 {
+	
+	JdbcClient jdbcClient;
 	
 	@Autowired
 	private UserRepository userRepository;
@@ -43,10 +46,10 @@ public class UserServiceV1 {
 		return userRepository.findById(id);
 	}
 	
-	@Cacheable("userByLogin")
-	public Optional<User> findByLogin(String login) {
-    	log.info("Find User by Login method started...");
-        return userRepository.findByLogin(login);
+	@Cacheable("userByUsername")
+	public Optional<User> findByUsername(String username) {
+    	log.info("Find User by Username method started...");
+        return userRepository.findByUsername(username, jdbcClient);
     }
 
 	
@@ -54,7 +57,7 @@ public class UserServiceV1 {
 		log.info("update User method started...");
 	    return userRepository.findById(id)
 	           .map(user -> {
-	                user.setLogin(updatedUser.getLogin());
+	                user.setUsername(updatedUser.getUsername());
 	                user.setPassword(updatedUser.getPassword());
 	                return userRepository.save(user);
 	            });

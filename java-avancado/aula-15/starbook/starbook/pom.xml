@@ -18,7 +18,7 @@
 		<java.version>22</java.version>
 		
 		   <database.username>postgres</database.username>        <!-- flyway.database.username -->
-        <database.password>1234</database.password> <!-- flyway.database.password -->
+        <database.password>root</database.password> <!-- flyway.database.password -->
 	</properties>
 	<dependencies>
 		<dependency>
@@ -38,7 +38,6 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -53,7 +53,7 @@ public class UserControllerV1Test {
     private User generateFakeUser() {
 		User user = new User();
 		user.setId(faker.number().randomNumber());
-		user.setLogin(faker.name().username());
+		user.setUsername(faker.name().username());
 		return user;
 	}
     
@@ -107,7 +107,7 @@ public class UserControllerV1Test {
         User updateInfo = generateFakeUser(); 
         User updatedUser = generateFakeUser(); 
 
-        updatedUser.setLogin("Updated " + updatedUser.getLogin());
+        updatedUser.setUsername("Updated " + updatedUser.getUsername());
         when(userService.update(any(Long.class), any(User.class))).thenReturn(Optional.of(updatedUser));
 
         mockMvc.perform(put("/api/v1/users/{id}", 1)

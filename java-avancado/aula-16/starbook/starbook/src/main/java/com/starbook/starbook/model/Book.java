@@ -2,7 +2,6 @@ package com.starbook.starbook.model;
 
 import java.util.Date;
 import java.util.Set;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.CascadeType;
@@ -22,6 +21,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PastOrPresent;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -29,6 +29,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor 
 @Data
+@Builder
 @Entity(name = "BOOK")
 public class Book {
 	
@@ -64,7 +65,7 @@ public class Book {
 	private String cover;
 	
 	@NotNull
-	@Column(nullable = false)
+	@Column(nullable = false, name = "is_physical")
     private boolean isPhysical;
 	
 	@ManyToOne

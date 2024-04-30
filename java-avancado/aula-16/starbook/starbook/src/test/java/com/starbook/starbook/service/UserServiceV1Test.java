@@ -37,7 +37,7 @@ public class UserServiceV1Test {
 	private User generateFakeUser() {
 		User user = new User();
 		user.setId(faker.number().randomNumber());
-		user.setLogin(faker.name().username());
+		user.setUsername(faker.name().username());
 		user.setPassword(faker.number().digits(8));
 		return user;
 	}
@@ -50,19 +50,19 @@ public class UserServiceV1Test {
 		User savedUser = userService.create(fakeUser);
 		
 		assertNotNull(fakeUser);
-		assertEquals(fakeUser.getLogin(), savedUser.getLogin());
+		assertEquals(fakeUser.getUsername(), savedUser.getUsername());
 		assertEquals(fakeUser.getPassword(), savedUser.getPassword());
 		verify(userRepository).save(any(User.class));
 		
 	}
 	
 	@Test
-	void createUser_WithLoginAlreadyExists_ThrowsDataIntegrityViolationException(){
+	void createUser_WithUsernameAlreadyExists_ThrowsDataIntegrityViolationException(){
 		
 		User fakeUser = generateFakeUser();
 		
 		// Simulating a uniqueness restrict violation of the "login" field.
-		willThrow(DataIntegrityViolationException.class).given(userRepository).save(argThat(newUser -> newUser.getLogin().equals(fakeUser.getLogin())));
+		willThrow(DataIntegrityViolationException.class).given(userRepository).save(argThat(newUser -> newUser.getUsername().equals(fakeUser.getUsername())));
 		
 		//Attempts to create the Employee, expecting the exception to be thrown due to the name uniqueness violation.
 		assertThrows(DataIntegrityViolationException.class, () -> userService.create(fakeUser));
@@ -108,7 +108,7 @@ public class UserServiceV1Test {
 	        Optional<User> result = userService.update(originalUser.getId(), updatedUser);
 
 	        assertTrue(result.isPresent());
-	        assertEquals(updatedUser.getLogin(), result.get().getLogin());
+	        assertEquals(updatedUser.getUsername(), result.get().getUsername());
 	        assertEquals(updatedUser.getPassword(), result.get().getPassword());
 	        verify(userRepository).findById(originalUser.getId());
 	        verify(userRepository).save(any(User.class));
