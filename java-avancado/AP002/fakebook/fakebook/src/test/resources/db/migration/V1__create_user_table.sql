@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS public.users
 (
-    id SERIAL PRIMARY KEY,
+    id bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username varchar(255),
     password varchar(255),
     email varchar(255),

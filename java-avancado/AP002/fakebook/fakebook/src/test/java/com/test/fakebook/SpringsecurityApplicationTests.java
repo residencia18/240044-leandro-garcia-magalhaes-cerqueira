@@ -1,4 +1,4 @@
-package com.example.springsecurity;
+package com.test.fakebook;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;

@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 @Entity
 public class AuditLog {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotNull(message = "EventName must not be null") // Validação no nível da aplicação
     @Size(min = 5, max = 50, message = "EventName must be between 5 and 50 characters long")
