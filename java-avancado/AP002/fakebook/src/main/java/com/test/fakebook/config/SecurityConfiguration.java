@@ -40,6 +40,7 @@ public class SecurityConfiguration {
                 .cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
+                		.requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/api/auth/**").permitAll()
                         .anyRequest().authenticated())
                 .oauth2ResourceServer(oAuth2ResourceServerConfigurer
@@ -50,6 +51,8 @@ public class SecurityConfiguration {
                         .accessDeniedHandler(new BearerTokenAccessDeniedHandler()))
                 .build();
     }
+    
+    
 
     @Bean
     public PasswordEncoder passwordEncoder() {

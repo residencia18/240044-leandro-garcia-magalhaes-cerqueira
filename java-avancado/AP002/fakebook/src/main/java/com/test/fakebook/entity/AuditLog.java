@@ -18,18 +18,30 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity
+@Entity(name = "audit_log")
 public class AuditLog {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
     @NotNull(message = "EventName must not be null") // Validação no nível da aplicação
-    @Size(min = 5, max = 50, message = "EventName must be between 5 and 50 characters long")
-    @Column(unique = true, nullable = false) // Restrições a nível de banco de dados
+    @Size(min = 5, max = 100, message = "EventName must be between 5 and 100 characters long")
+    @Column(unique = true, nullable = false, name = "event_name") // Restrições a nível de banco de dados
     private String eventName;
+    
+    @Column(name = "event_description")
     private String eventDescription;
+    
+    @Column(name = "timestamp")
     private Date timestamp;
+    
+    @Column(name = "user_id")
     private String userId;
+    
+    @Column(name = "affected_resource")
     private String affectedResource;
+    
+    @Column(name = "origin")
     private String origin;
 }
