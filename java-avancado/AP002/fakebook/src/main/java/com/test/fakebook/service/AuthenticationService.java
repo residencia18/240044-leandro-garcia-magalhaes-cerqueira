@@ -29,7 +29,7 @@ public class AuthenticationService {
     public void register(RegisterRequest registerRequest) {
         User user = userMapper.fromRegisterRequest(registerRequest);// Usando o UserMapper para criar o objeto User
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.saveUser(user);
+        userRepository.save(user);
     }
 
     public LoginResponse login(LoginRequest loginRequest) {

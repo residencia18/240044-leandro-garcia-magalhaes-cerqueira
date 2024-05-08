@@ -28,27 +28,30 @@ public class TokenService {
 		// Defina a data de expiração do token (por exemplo, 24 horas a partir de agora)
 		passwordResetToken
 				.setExpiryDate(new Date(System.currentTimeMillis() + PasswordResetToken.getExpiration() * 60 * 1000));
+		System.out.println(passwordResetToken);
 		tokenRepository.save(passwordResetToken);
 	}
 
-	// Método para recuperar o e-mail associado a um token
-	public String getEmailByToken(String token) {
+	
+	public PasswordResetToken findByToken(String token) {
+		
 		Optional<PasswordResetToken> optionalToken = tokenRepository.findByToken(token);
-		System.out.println("O token buscado é: " + token);
+		System.out.println("O token buscado é: " + optionalToken);
+		
 
 		if (optionalToken.isPresent()) {
 			PasswordResetToken passwordResetToken = optionalToken.get();
-			System.out.println("OK OBJETO: " + passwordResetToken.getUser().toString());
 
 			if (!isTokenExpired(passwordResetToken)) {
-				System.out.println("O E-MAIL FOI ENCONTRADO: " + passwordResetToken.getUser().getEmail());
-				return passwordResetToken.getUser().getEmail();
+				System.out.println("O TOKEN FOI ENCONTRADO: " + passwordResetToken);
+				return passwordResetToken;
 			} else {
 				System.out.println("Token expirado: " + token);
-				System.out.println("OK OBJETO: " + passwordResetToken.getUser().toString());
+				System.out.println("OK OBJETO: " + passwordResetToken);
 			}
 		} else {
 			System.out.println("Token não encontrado: " + token);
+			System.out.println("NOT OK - OBJETO: " + optionalToken);
 
 		}
 
@@ -57,12 +60,17 @@ public class TokenService {
 
 	// Método para invalidar um token
 	public void invalidateToken(String token) {
-		Optional<PasswordResetToken> optionalToken = tokenRepository.findByToken(token);
-		optionalToken.ifPresent(tokenRepository::delete);
-	}
+        Optional<PasswordResetToken> optionalToken = tokenRepository.findByToken(token);
+        if (optionalToken.isPresent()) {
+            PasswordResetToken passwordResetToken = optionalToken.get();
+            tokenRepository.invalidateToken(passwordResetToken.getToken());
+        } else {
+            System.out.println("Token não encontrado: " + token);
+        }
+    }
 
 	// Método auxiliar para verificar se um token está expirado
-	private boolean isTokenExpired(PasswordResetToken token) {
+	public boolean isTokenExpired(PasswordResetToken token) {
 		return token.getExpiryDate().before(new Date());
 	}
 

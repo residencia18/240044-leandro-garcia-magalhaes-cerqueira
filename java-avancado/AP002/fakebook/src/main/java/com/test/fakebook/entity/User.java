@@ -14,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -25,8 +26,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Builder
+@Entity(name = "users")
 public class User  {
 
     @Id
@@ -37,6 +38,7 @@ public class User  {
     @Email(message = "Email should be valid")
     @Column(unique = true, nullable = false) // Restrições a nível de banco de dados
     private String email;
+    
 
     @NotNull(message = "Username must not be null") // Validação no nível da aplicação
     @Size(min = 5, max = 15, message = "Username must be between 5 and 15 characters long")
@@ -45,10 +47,16 @@ public class User  {
     
     @ValidPassword
     private String password;
+    
     private String role;
     
     @Builder.Default
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+    
+    @Builder.Default
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<PasswordResetToken> passwordResetTokens = new HashSet<>();
+
 }

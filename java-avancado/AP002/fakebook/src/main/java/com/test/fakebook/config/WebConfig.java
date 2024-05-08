@@ -14,12 +14,9 @@ public class WebConfig implements WebMvcConfigurer {
     @Autowired
     private AuditInterceptor auditInterceptor;
 
-//    @Autowired
-//    private IpAddressInterceptor ipAddressInterceptor;    
-
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(auditInterceptor);       //para a opção via Interceptor
-        //registry.addInterceptor(ipAddressInterceptor); //para a opção via AOP
+        registry.addInterceptor(auditInterceptor);  
+      
     }
 }

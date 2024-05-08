@@ -35,17 +35,29 @@ public class PasswordRecoveryController {
 
 		@PostMapping("/request")
 		public ResponseEntity<String> requestPasswordRecovery(@RequestBody Map<String, String> request) {
+			
 		    String email = request.get("email");
+		    
 		    Optional<User> userOptional = userService.findByEmail(email);
+		    
 		    if (userOptional.isPresent()) {
+		    	
 		        User user = userOptional.get();
+		        
 		        String token = tokenService.generateToken();
+		        
 		        tokenService.saveToken(token, user);
+		        
 		        String recoveryLink = "http://seusite.com/recuperar-senha?token=" + token;
+		        
 		        String emailBody = "Olá,\n\nVocê solicitou a recuperação de senha. Por favor, clique no link a seguir para cadastrar uma nova senha:\n" + recoveryLink;
+		        
 		        emailService.sendEmail(email, "Recuperação de Senha", emailBody);
+		        
 		        return ResponseEntity.ok("Um e-mail de recuperação foi enviado para " + email);
+		        
 		    } else {
+		    	
 		        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuário não encontrado para o e-mail fornecido");
 		    }
 		}

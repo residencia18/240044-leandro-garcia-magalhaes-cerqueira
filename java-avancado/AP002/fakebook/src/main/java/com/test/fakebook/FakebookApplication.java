@@ -10,4 +10,5 @@ public class FakebookApplication {
 		SpringApplication.run(FakebookApplication.class, args);
 	}
 
+	
 }

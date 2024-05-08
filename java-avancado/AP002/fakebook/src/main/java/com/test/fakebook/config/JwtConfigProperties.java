@@ -1,7 +1,5 @@
 package com.test.fakebook.config;
 
-
-
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 
