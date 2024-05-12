@@ -11,15 +11,22 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 
+// Service class for JWT token generation
 @Service
 @RequiredArgsConstructor
 public class JwtProvider {
+    // JwtEncoder for encoding JWT tokens
     private final JwtEncoder jwtEncoder;
+    // Expiration time for JWT tokens in seconds
     public static final Long EXPIRATION_TIME_IN_SECONDS = 3600L;
 
+    // Generate a JWT token from authentication details
     public String generateToken(Authentication authentication) {
+        // Extract user details from authentication
         User principal = (User) authentication.getPrincipal();
+        // Get current time
         var now = Instant.now();
+        // Build JWT claims
         JwtClaimsSet claims = JwtClaimsSet.builder()
                 .issuer("self")
                 .issuedAt(now)
@@ -28,7 +35,7 @@ public class JwtProvider {
                 .claim("scope", "ROLE_USER")
                 .build();
 
+        // Encode JWT token with specified claims
         return this.jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
     }
-
 }

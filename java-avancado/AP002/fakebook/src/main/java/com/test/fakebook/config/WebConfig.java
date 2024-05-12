@@ -7,16 +7,17 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import com.test.fakebook.interceptor.AuditInterceptor;
 
-
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
+    // Injecting AuditInterceptor bean
     @Autowired
     private AuditInterceptor auditInterceptor;
 
+    // Configuring interceptors
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(auditInterceptor);  
-      
+        // Adding AuditInterceptor to the interceptor registry
+        registry.addInterceptor(auditInterceptor);
     }
 }

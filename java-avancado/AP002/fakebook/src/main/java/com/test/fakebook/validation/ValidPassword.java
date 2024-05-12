@@ -9,6 +9,7 @@ import java.lang.annotation.Target;
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
 
+// Custom annotation for validating passwords
 @Documented
 @Constraint(validatedBy = PasswordConstraintValidator.class)
 @Target({ ElementType.METHOD,
@@ -19,7 +20,13 @@ import jakarta.validation.Payload;
           ElementType.TYPE_USE })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ValidPassword {
+
+    // Default message for invalid passwords
     String message() default "Invalid password";
+
+    // Groups for constraint validation
     Class<?>[] groups() default {};
+
+    // Additional payload details
     Class<? extends Payload>[] payload() default {};
 }

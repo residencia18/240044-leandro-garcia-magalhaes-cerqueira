@@ -1,4 +1,5 @@
 package com.test.fakebook.interceptor;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,15 +19,17 @@ public class AuditInterceptor implements HandlerInterceptor {
     @Autowired
     private AuditService auditService;
 
+    // Intercept and log requests before they are handled
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        // Captura o endereço IP de origem
+        
+        // Get request origin IP address
         String origin = request.getHeader("X-FORWARDED-FOR");
         if (origin == null) {
             origin = request.getRemoteAddr();
         }
 
-        // Recupera informações do usuário autenticado
+        // Get user ID from authentication context
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userId = "unauthenticated user";
         if (authentication != null && authentication.getPrincipal() instanceof User) {
@@ -34,17 +37,20 @@ public class AuditInterceptor implements HandlerInterceptor {
             userId = user.getUsername();
         }
 
+        // Generate event name and description
         String eventName = "Request to " + request.getRequestURI();
         String description = "Method: " + request.getMethod();
 
-        // Loga o evento
+        // Log the event
         auditService.logEvent(eventName, description, userId, request.getRequestURI(), origin);
         return true;
     }
 
+    // Perform actions after request handling but before view rendering
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {}
 
+    // Perform actions after request completion
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {}
 }

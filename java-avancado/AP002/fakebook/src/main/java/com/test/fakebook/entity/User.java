@@ -1,9 +1,9 @@
 package com.test.fakebook.entity;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import com.test.fakebook.validation.ValidPassword;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,36 +27,58 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "users")
+@Entity(name = "users") // Specifies the entity name in the database
 public class User  {
 
+    // Primary key for the user
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "Email must not be null") // Validação no nível da aplicação
+    // Validation constraints for email
+    @NotNull(message = "Email must not be null") 
     @Email(message = "Email should be valid")
-    @Column(unique = true, nullable = false) // Restrições a nível de banco de dados
+    @Column(unique = true, nullable = false) 
     private String email;
     
 
-    @NotNull(message = "Username must not be null") // Validação no nível da aplicação
+    // Validation constraints for username
+    @NotNull(message = "Username must not be null") 
     @Size(min = 5, max = 15, message = "Username must be between 5 and 15 characters long")
-    @Column(unique = true, nullable = false) // Restrições a nível de banco de dados
+    @Column(unique = true, nullable = false) 
     private String username;
     
+    // Custom validation for password
     @ValidPassword
     private String password;
     
-    private String role;
     
+    // Set of roles associated with the user
     @Builder.Default
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
     
+    // Set of password reset tokens associated with the user
     @Builder.Default
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<PasswordResetToken> passwordResetTokens = new HashSet<>();
+    
+    
+    // Override of hashCode method
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, email); 
+    }
 
+    // Override of equals method
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        User user = (User) obj;
+        return Objects.equals(id, user.id) &&
+               Objects.equals(username, user.username) &&
+               Objects.equals(email, user.email); 
+    }
 }
