@@ -2,8 +2,23 @@
 
     <img class="logo" src="../../../assets/Logo-Kantinho-da-Lagoa.jpg" alt="Logo da pousada" routerLink="/home" routerLinkActive="active">
     <h1 class="title"> Kantinho da Lagoa</h1>
-    <button class="button" routerLink="/reservationform" routerLinkActive="active">Reserve aqui</button>
-    
+
+    <div class="end-section">
+      <div class="cart-container">
+          <i class="material-icons shopping-cart" (click)="toggleCart()">shopping_cart</i>
+          <div class="cart-dropdown" *ngIf="cart.length > 0 && isCartOpen">
+              <div class="cart-items">
+                  <h2>Carrinho de Compras</h2>
+                  <ul>
+                      <li *ngFor="let item of cart">
+                          {{ item.title }} - {{ item.price }} - {{ item.selectedDays }} {{ item.selectedDays > 1 ? 'diárias' : 'diária' }}
+                      </li>
+                      <li>Total: {{ getTotal() }}</li>
+                  </ul>
+                  <button (click)="clearCart()">Limpar Carrinho</button>
+              </div>
+          </div>
+      </div>
+      <button class="button" routerLink="/reservationform" routerLinkActive="active">Reserve aqui</button>
+  </div>
 </div>
-
-
