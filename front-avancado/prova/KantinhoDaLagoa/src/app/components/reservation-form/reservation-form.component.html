@@ -1,0 +1,81 @@
+<div class="form-container">
+
+  <div class="form">
+    <form  [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+        <h2 class="title">Fazer reserva:</h2>
+
+        <!-- NAME -->
+        <label class="label">Nome*: </label>
+        <br>
+        <input class="name" formControlName="name">
+        
+        <div>
+          <span class="span" *ngIf="!reservationForm.get('name')?.valid && reservationForm.get('name')?.touched">
+          * Campo obrigatório <br>
+          * Insira o seu nome e sobrenome<br>      
+          </span>
+        </div>
+
+        <!-- EMAIL -->
+        <label class="label">Email*: </label>
+        <br>
+        <input class="email" formControlName="email">
+
+        <div>
+          <span class="span" *ngIf="!reservationForm.get('email')?.valid && reservationForm.get('email')?.touched">
+          * Campo obrigatório <br>
+          * Insira um email válido<br>      
+          </span>
+        </div>
+
+         <!-- PHONENUMBER -->
+         <label class="label">Telefone*: </label>
+         <br>
+         <input class="phoneNumber" formControlName="phoneNumber" placeholder=" (DDD) 9XXXX-XXXX">
+ 
+         <div>
+           <span class="span" *ngIf="!reservationForm.get('phoneNumber')?.valid && reservationForm.get('phoneNumber')?.touched">
+           * Campo obrigatório <br>
+           * Insira um número válido (DDD) XXXXX-XXXX<br>      
+           </span>
+         </div>
+
+         <!-- ENTRYDATE -->
+         <label class="label">Data de entrada*: </label>
+         <br>
+         <input class="entryDate" formControlName="entryDate" placeholder=" (dd/mm/aaaa)">
+ 
+        <div>
+            <span class="span" *ngIf="!reservationForm.get('entryDate')?.valid && reservationForm.get('entryDate')?.touched">
+                * Insira uma data válida (dd/mm/aaaa) <br>
+            </span>
+        </div>
+
+         <!-- QUITDATE -->
+         <label class="label">Data de saída*: </label>
+         <br>
+         <input class="quitDate" formControlName="quitDate" placeholder=" (dd/mm/aaaa)">
+ 
+         <div>
+            <span class="span" *ngIf="!reservationForm.get('quitDate')?.valid && reservationForm.get('quitDate')?.touched">
+                * Insira uma data válida (dd/mm/aaaa) <br>
+            </span>
+        </div>
+
+        <button class="button" [disabled]="reservationForm.get('email')?.invalid || reservationForm.get('entryDate')?.invalid  || reservationForm.get('quitDate')?.invalid ">Reservar</button>
+
+    </form>
+  </div>
+
+  <div class="wpp-contact">
+    <h1 class="contact-title"> Você também pode <br> falar diretamente conosco:</h1>
+    <img class="qrcode" src="../../../assets/contacts/wpp_contact.jpeg" alt="whatsapp-contact">
+    <br>
+    <h1 class="contact-title"> ou então, acesse: </h1>
+    <a class="link" href="https://wa.me/qr/B6UMNSHI6JCMH1" target="_blank"> https://wa.me/qr/B6UMNSHI6JCMH1</a>
+  </div>
+
+    
+
+</div>
+

@@ -1,0 +1,40 @@
+.title{
+ 
+  font-family: "Lora", serif;
+  font-size: 50px;
+  font-weight:900;
+  font-style: normal;
+  color: #3a1d00;
+
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    align-content: center;
+    justify-content: center;
+    padding-bottom: 50px;
+    margin-bottom: 10px;
+  }
+  
+  img {
+    border-radius: 10px;
+    width: 300px; 
+    height: 300px; 
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    
+  }
+
+  img:hover{
+    -webkit-transform: scale(1.6);
+    -ms-transform: scale(1.6);
+    transform: scale(1.6);
+    transition: 0.2s ease;
+    }
+
+  .content{
+    text-align: center;
+}
