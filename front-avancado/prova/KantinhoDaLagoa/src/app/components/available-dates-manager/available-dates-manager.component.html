@@ -1,0 +1,12 @@
+<form [formGroup]="dateForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="startDate">Data de entrada:</label>
+      <input id="startDate" type="date" formControlName="startDate">
+    </div>
+    <div>
+      <label for="endDate">Data de saída:</label>
+      <input id="endDate" type="date" formControlName="endDate">
+    </div>
+    <button type="submit" [disabled]="dateForm.invalid">Adicionar datas</button>
+  </form>
+  

@@ -172,12 +172,28 @@
   top: 150%;
   width: 100%;
   margin-top: 50px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .plans-title {
   text-align: center;
+  font-family: "Lora", serif;
   font-size: 24px;
+  font-style: normal;
+  color: #ffffff;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.menu-text {
+  position: absolute;
+  left: 25%;
+  font-family: "Lora", serif;
+  font-size: 20px;
+  font-weight: 900;
+  font-style: normal;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .plans {
@@ -198,6 +214,15 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.plan-sub-title{
+  font-family: "Lora", serif;
+  font-size: 20px;
+  font-weight: 900;
+  font-style: normal;
+  color: #824D00;
+
+}
+
 .plan-item img {
   width: 100%;
   height: auto;
@@ -205,11 +230,13 @@
 }
 
 .plan-item h3 {
+  font-family: "Lora", serif;
   font-size: 18px;
   margin: 10px 0;
 }
 
 .plan-item p {
+  font-family: "Lora", serif;
   font-size: 14px;
   margin: 5px 0;
 }
@@ -226,16 +253,29 @@
   width: 50px;
 }
 
+.diaries{
+  font-family: "Lora", serif;
+  padding-left: 10px;
+  color: #824D00;
+}
+
 .plan-item button {
-  padding: 5px 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
+  margin: 20px;
+  background-color: #C6B69D;
+  font-family: "Lora", serif;
+  font-weight: bold;
+  font-size: 20px;
+  color:#3a1d00;
   cursor: pointer;
   border-radius: 5px;
 }
 
 .plan-item button:hover {
-  background-color: #0056b3;
+  background-color: #824D00;
+  color: #C6B69D;
+  border: 2px solid #C6B69D;
+  transition-duration: 0.5s;
+  cursor: pointer;
 }
+
 

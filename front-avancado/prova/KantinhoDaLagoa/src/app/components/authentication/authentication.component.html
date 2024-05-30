@@ -1,0 +1,44 @@
+<div class="form-container">
+
+    <form class="form" [formGroup]="authForm">
+
+      <h2 class="title">Autenticação</h2>
+      <br>
+      <label class="label">Email: </label>
+      <br>
+      <input class="email" formControlName="email">
+      
+      <div>
+          <span class="span" *ngIf="!authForm.get('email')?.valid && authForm.get('email')?.touched">
+          * Campo obrigatório <br>
+          * Insira um email válido<br>      
+          </span>
+      </div>
+
+      <br>
+
+      <label class="label">Senha: </label>
+      <br>
+
+      <input [type]="hide ? 'password' : 'text'" formControlName="password">
+      <br>
+      
+      <div>
+        <span class="span" *ngIf="!authForm.get('password')?.valid && authForm.get('password')?.touched">
+          * Campo obrigatório <br>
+          * A senha deve conter pelo menos 6 dígitos<br>      
+        </span>
+      </div>
+
+      <br>
+  
+      <div>
+        <button class="button"  [disabled]="!authForm.valid" (click)="isLogin ? login() : guest()" [class.align-right]="!isLogin" [disabled]="!authForm.valid">{{isLogin ? 'Entrar' : 'Entrar como convidado' }}</button>
+        <button class="button" id="guest" (click)="redirectToHome()" *ngIf="isLogin">Sou visitante</button>
+      </div>
+
+    </form>
+     
+
+</div>
+  

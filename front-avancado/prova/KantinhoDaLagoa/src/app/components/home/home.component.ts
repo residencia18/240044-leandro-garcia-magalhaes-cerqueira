@@ -20,8 +20,8 @@ export class HomeComponent {
   plans: IPlan[] = [
     {
       type: "basic",
-      imageUrl: 'https://via.placeholder.com/150',
-      title: 'Plano básico',
+      imageUrl: '../assets/plans/plan1.png',
+      title: 'Plano Básico',
       description:
         'Este é um plano básico, você vai ter acesso a todos os recursos básicos.',
       price: 150.0,
@@ -29,8 +29,8 @@ export class HomeComponent {
     },
     {
       type: "intermediate",
-      imageUrl: 'https://via.placeholder.com/150',
-      title: 'Plano intermediário',
+      imageUrl: '../assets/plans/plan2.png',
+      title: 'Plano Intermediário',
       description:
         'Este é um plano intermediário, você vai ter acesso a todos os recursos intermediários.',
       price: 250.0,
@@ -38,8 +38,8 @@ export class HomeComponent {
     },
     {
       type: "advanced",
-      imageUrl: 'https://via.placeholder.com/150',
-      title: 'Plano avançado',
+      imageUrl: '../assets/plans/plan3.png',
+      title: 'Plano Avançado',
       description:
         'Este é um plano avançado, você vai ter acesso a todos os recursos avançados.',
       price: 350.0,

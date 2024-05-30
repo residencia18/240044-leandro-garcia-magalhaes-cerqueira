@@ -1,0 +1,8 @@
+<h1>Datas disponíveis:</h1>
+<br>
+
+<div *ngFor="let date of availableDates">
+    <p>Data inicial: {{ date.startDate | date }}</p>
+    <p>Data final: {{ date.endDate | date }}</p>
+  </div>
+  
