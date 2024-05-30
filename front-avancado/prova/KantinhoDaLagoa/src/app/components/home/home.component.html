@@ -2,30 +2,47 @@
 <h1 class="title">Desfrute da paz e da beleza do Kantinho da Lagoa.</h1>
 <h5 class="sub-title">Apenas à 200 metros da Barraca da Oca (Praia)*</h5>
 
-    <div class="menu">
+<div class="menu">
 
-        <h3 class="menu-text">Escolha alguma das opções abaixo e conheça:</h3>
-        
+  <h3 class="menu-text">Escolha alguma das opções abaixo e conheça:</h3>
 
-        <div class="bt1" routerLink="/internalareagallery" routerLinkActive="active">
-            <p class="menu-title-1">Área interna</p>
-        <img class="menu-button" src="../../../assets/menu_buttons/area_interna.jpg" alt="Área interna">
-        </div>
 
-        <div class="bt2" routerLink="/externalareagallery" routerLinkActive="active">
-            <p class="menu-title-2">Área externa</p>
-        <img class="menu-button" src="../../../assets/menu_buttons/area_externa.jpg" alt="Área externa">
-        </div>
+  <div class="bt1" routerLink="/internalareagallery" routerLinkActive="active">
+    <p class="menu-title-1">Área interna</p>
+    <img class="menu-button" src="../../../assets/menu_buttons/area_interna.jpg" alt="Área interna">
+  </div>
 
-        <div class="bt3" routerLink="/beachgallery" routerLinkActive="active">
-            <p class="menu-title-3">A praia</p>
-        <img class="menu-button" src="../../../assets/menu_buttons/a_praia.jpg" alt="A praia">
-        </div>
+  <div class="bt2" routerLink="/externalareagallery" routerLinkActive="active">
+    <p class="menu-title-2">Área externa</p>
+    <img class="menu-button" src="../../../assets/menu_buttons/area_externa.jpg" alt="Área externa">
+  </div>
 
-    </div>
+  <div class="bt3" routerLink="/beachgallery" routerLinkActive="active">
+    <p class="menu-title-3">A praia</p>
+    <img class="menu-button" src="../../../assets/menu_buttons/a_praia.jpg" alt="A praia">
+  </div>
 
-<!-- <img class="background2" src="../../../assets/background.jpg" > -->
+</div>
 
 <img class="background" src="../../../assets/menu_buttons/a_praia.jpg" width="100%">
+<!-- Planos disponíveis -->
+<div class="plans-container">
+  <h2 class="plans-title">Planos Disponíveis</h2>
+  <div class="plans">
+      <div *ngFor="let plan of plans" class="plan-item">
+          <img [src]="plan.imageUrl" alt="Plan Image">
+          <h3>{{ plan.title }}</h3>
+          <p>{{ plan.description }}</p>
+          <p>Preço: {{ plan.price }}</p>
+          <div>
+              <label for="diarias-{{ plan.title }}">Número de Diárias:</label>
+              <input type="number" id="diarias-{{ plan.title }}" name="diarias-{{ plan.title }}" min="1" [(ngModel)]="plan.selectedDays">
+            </div>
+          <button (click)="addToCart(plan)">Adicionar ao Carrinho</button>
+      </div>
+  </div>
+</div>
 
 
+
+<!-- <img class="background2" src="../../../assets/background.jpg" > -->
