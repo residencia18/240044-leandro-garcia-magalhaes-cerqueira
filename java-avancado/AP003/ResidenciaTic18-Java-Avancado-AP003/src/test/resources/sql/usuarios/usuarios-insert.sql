@@ -1,0 +1,3 @@
+insert into USUARIOS (id, username, password, role, ativo) values (100, '20191tadssaj0026@ifba.edu.br', '$2a$10$B8C2izyFqQZEsLW33dgpaeuZRNnZuhsMJFMK/Ufa2//FAuxg9IMZq', 'ROLE_ADMIN', true);
+insert into USUARIOS (id, username, password, role, ativo) values (101, 'bia@email.com', '$2a$12$MOQE54HR6RTIq25LrSs9tOth.9S9peIbQW/jVqhAfhM9aAKePeTVi', 'ROLE_CLIENTE', true);
+insert into USUARIOS (id, username, password, role, ativo) values (102, 'ana@email.com', '$2a$12$MOQE54HR6RTIq25LrSs9tOth.9S9peIbQW/jVqhAfhM9aAKePeTVi', 'ROLE_CLIENTE', false);
